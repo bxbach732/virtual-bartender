@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    restart: "always"
+    ports:
+      - "7777:7777"
+    env_file:
+      - .env
