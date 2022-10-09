@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const shelfSchema = new Schema(
     {
-        userID: String,
+        userID: Schema.Types.ObjectId,
         content: []
     }
 );

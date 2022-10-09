@@ -5,8 +5,7 @@ const userSchema = new Schema(
     {
         email: String,
         phone: String,
-        isAdmin: Boolean,
-        shelfID: String
+        isAdmin: Boolean
     }
 );
 

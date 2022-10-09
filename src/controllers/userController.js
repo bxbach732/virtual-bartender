@@ -1,4 +1,5 @@
 const { userModel } = require("../models/userModel")
+const fetch = require("node-fetch");
 
 async function listAll (req, res) {
     try {
@@ -21,7 +22,19 @@ async function listUser (req, res) {
 async function createUser (req, res) {
     try {
         const newUser = new userModel(req.body);
+        const userID = newUser._id;
         const data = await newUser.save();
+
+        const createdShelf = await fetch("http://localhost:7777/shelf", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              "userID": userID,
+              "content": []
+            })
+        });
         res.send(data);
     } catch (error) {
         res.status(500).send(error);
