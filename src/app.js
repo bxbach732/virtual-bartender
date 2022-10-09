@@ -3,8 +3,11 @@ require("dotenv").config({ path: "../project.env" });
 const express = require("express");
 const bodyParser = require("body-parser");
 const db = require("./db/database");
+
 const ingredientRouter = require("./routes/ingredientRouter");
 const recipeRouter = require("./routes/recipeRouter");
+const shelfRouter = require("./routes/shelfRouter");
+const userRouter = require("./routes/userRouter");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -25,6 +28,8 @@ app.get('/hello', async (req, res) => {
 //Routes
 app.use("/ingredient", ingredientRouter);
 app.use("/recipe", recipeRouter);
+app.use("/shelf", shelfRouter);
+app.use("/user", userRouter);
 
 app.listen(PORT, HOST, () => {
     console.log(`Listen to ${HOST}:${PORT}`);
