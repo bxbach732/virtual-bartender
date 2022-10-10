@@ -61,6 +61,23 @@ async function addIngredient (req, res) {
     }
 }
 
+async function deleteIngredient (req, res) {
+    try {   
+        const newIngredientID = req.params.iid;
+        let shelfData = await shelfModel.findById(req.params.id).exec();
+        if (shelfData.content.includes(newIngredientID)) {
+            const index = shelfData.content.indexOf(newIngredientID);
+            shelfData.content.splice(index, 1);
+            const data = await shelfData.save();
+            res.send(data);
+        } else {
+            res.status(500).send({message: "No ingredient in bar shelf..."});
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 async function findPossibleRecipes (req, res) {
     try {   
         //WIP
@@ -69,6 +86,7 @@ async function findPossibleRecipes (req, res) {
     }
 }
 
+
 module.exports = {
     listAll,
     listShelf,
@@ -76,5 +94,6 @@ module.exports = {
     updateShelf,
     deleteShelf,
     addIngredient,
+    deleteIngredient,
     findPossibleRecipes
 }
