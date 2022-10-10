@@ -18,7 +18,10 @@ router.put("/:id", shelfController.updateShelf);
 router.delete("/:id", shelfController.deleteShelf);
 
 //Add an ingredient to the shelf
-router.put("/:id/:iid", shelfController.addIngredient);
+router.put("/:id/add/:iid", shelfController.addIngredient);
+
+//Delete an ingredient from the shelf
+router.put("/:id/delete/:iid", shelfController.deleteIngredient);
 
 //Find possible recipes 
 router.get("/id:/possible-recipe", shelfController.findPossibleRecipes);
