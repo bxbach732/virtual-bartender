@@ -17,4 +17,7 @@ router.put("/:id", userController.updateUser);
 //Delete an user
 router.delete("/:id", userController.deleteUser);
 
+//Get the content of the bar shelf
+router.get("/:id/shelf", userController.getShelf);
+
 module.exports = router;

@@ -48,10 +48,45 @@ async function deleteShelf (req, res) {
     }
 }
 
+////////////////////////
+async function addIngredient (req, res) {
+    try {   
+        const newIngredientID = req.params.iid;
+        let shelfData = await shelfModel.findById(req.params.id).exec();
+        shelfData.content.push(newIngredientID);
+        const data = await shelfData.save();
+        res.send(data);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+async function addIngredient (req, res) {
+    try {   
+        const newIngredientID = req.params.iid;
+        let shelfData = await shelfModel.findById(req.params.id).exec();
+        shelfData.content.push(newIngredientID);
+        const data = await shelfData.save();
+        res.send(data);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+async function findPossibleRecipes (req, res) {
+    try {   
+        //WIP
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     listAll,
     listShelf,
     createShelf,
     updateShelf,
-    deleteShelf
+    deleteShelf,
+    addIngredient,
+    findPossibleRecipes
 }

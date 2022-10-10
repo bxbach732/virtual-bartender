@@ -1,5 +1,7 @@
 const { userModel } = require("../models/userModel")
+const { shelfModel } = require("../models/shelfModel");
 const fetch = require("node-fetch");
+
 
 async function listAll (req, res) {
     try {
@@ -54,7 +56,16 @@ async function updateUser (req, res) {
 
 async function deleteUser (req, res) {
     try {
-        const data = await userModel.deleteOne({'_id': req.params.id}).exec();
+        const data = await userModel.deleteOne({ '_id': req.params.id }).exec();
+        res.send(data);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+async function getShelf (req, res) {
+    try {
+        const data = await shelfModel.findOne({ 'userID': req.params.id }).exec();
         res.send(data);
     } catch (error) {
         res.status(500).send(error);
@@ -66,5 +77,6 @@ module.exports = {
     listUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getShelf
 }

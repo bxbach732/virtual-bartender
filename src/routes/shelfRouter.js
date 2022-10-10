@@ -5,7 +5,7 @@ const shelfController = require("../controllers/shelfController");
 //Read all shelves
 router.get("/", shelfController.listAll);
   
-//Read a specific shelf
+//Read a specific shelf using shelf id
 router.get("/:id", shelfController.listShelf);
 
 //Create a shelf
@@ -16,5 +16,11 @@ router.put("/:id", shelfController.updateShelf);
 
 //Delete a shelf
 router.delete("/:id", shelfController.deleteShelf);
+
+//Add an ingredient to the shelf
+router.put("/:id/:iid", shelfController.addIngredient);
+
+//Find possible recipes 
+router.get("/id:/possible-recipe", shelfController.findPossibleRecipes);
 
 module.exports = router;
