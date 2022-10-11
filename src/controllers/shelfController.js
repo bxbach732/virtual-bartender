@@ -1,4 +1,6 @@
 const { shelfModel } = require("../models/shelfModel")
+const ingredientController = require("../controllers/ingredientController");
+const { recipeModel } = require("../models/recipeModel");
 
 async function listAll (req, res) {
     try {
@@ -80,9 +82,33 @@ async function deleteIngredient (req, res) {
 
 async function findPossibleRecipes (req, res) {
     try {   
-        //WIP
+        //Get the name of all the ingedients of the sbar shelf
+        const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content;
+        console.log(ingredientIDFromShelf);
+        let ingredientNameFromShelf = [];
+        for (const ingredientID of ingredientIDFromShelf) {
+            ingredientNameFromShelf.push((await ingredientController.listIngredientDetail(ingredientID)).name);
+        }
+        // res.json( {message: ingredientNameFromShelf}); //ft
+        console.log("Name of the ingredients from bar shelf extracted"); //ft
+        console.log(ingredientNameFromShelf);
+        //Get all the recipes ingreidnets and store in an array (array of arrays).
+        //Find all the arrays that are the subsets of the barshelf array
+        const allRecipesData = await recipeModel.find().exec();
+        const possibleRecipeID = [];
+        for (const recipeEntry of allRecipesData) {
+            if (recipeEntry.ingredient.every(ingredient => ingredientNameFromShelf.includes(ingredient))) {
+                possibleRecipeID.push(recipeEntry._id);
+            }
+        }
+
+        console.log(possibleRecipeID);
+        res.send("FOUND");
+        
+
+
     } catch (error) {
-        res.status(500).send(error);
+       res.status(500).send(error);
     }
 }
 

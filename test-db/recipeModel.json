@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "634524fe6b9db36e6d491d93"
+  },
+  "name": "Viable recipe#1",
+  "isAlcoholic": true,
+  "description": "test",
+  "instruction": "test",
+  "ingredient": [
+    "Gin",
+    "Vodka",
+    "Brandy",
+    "Tequila",
+    "Rum",
+    "Whiskey"
+  ],
+  "thumbnail": "test",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6345250f6b9db36e6d491d95"
+  },
+  "name": "Viable recipe#2",
+  "isAlcoholic": true,
+  "description": "test",
+  "instruction": "test",
+  "ingredient": [
+    "Gin",
+    "Tonic Water",
+    "Ice"
+  ],
+  "thumbnail": "test",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "634525476b9db36e6d491d97"
+  },
+  "name": "Impossible recipe #1",
+  "isAlcoholic": true,
+  "description": "test",
+  "instruction": "test",
+  "ingredient": [
+    "Gin",
+    "Tonic Water",
+    "Ice",
+    "Some random ingredient"
+  ],
+  "thumbnail": "test",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "634525616b9db36e6d491d99"
+  },
+  "name": "Impossible recipe #2",
+  "isAlcoholic": true,
+  "description": "test",
+  "instruction": "test",
+  "ingredient": [
+    "Some random ingredient",
+    "Some random ingredient #2",
+    "Some random ingredient #3"
+  ],
+  "thumbnail": "test",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63455b439daf3f1f96ce9052"
+  },
+  "name": "Viable recipe#3",
+  "isAlcoholic": true,
+  "description": "test",
+  "instruction": "test",
+  "ingredient": [
+    "Whiskey",
+    "Cola",
+    "Ice"
+  ],
+  "thumbnail": "test",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63455b5b9daf3f1f96ce9054"
+  },
+  "name": "Viable recipe#4",
+  "isAlcoholic": true,
+  "description": "test",
+  "instruction": "test",
+  "ingredient": [
+    "Rum",
+    "Cola",
+    "Ice",
+    "Lime"
+  ],
+  "thumbnail": "test",
+  "__v": 0
+}]

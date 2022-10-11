@@ -24,6 +24,6 @@ router.put("/:id/add/:iid", shelfController.addIngredient);
 router.put("/:id/delete/:iid", shelfController.deleteIngredient);
 
 //Find possible recipes 
-router.get("/id:/possible-recipe", shelfController.findPossibleRecipes);
+router.get("/:id/possible-recipe", shelfController.findPossibleRecipes);
 
 module.exports = router;

@@ -48,10 +48,20 @@ async function deleteIngredient (req, res) {
     }
 }
 
+async function listIngredientDetail (ingredientID) {
+    try {   
+        const data = await ingredientModel.findById(ingredientID).exec();
+        return data;
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports = {
     listAll,
     listIngredient,
     createIngredient,
     updateIngredient,
-    deleteIngredient
+    deleteIngredient,
+    listIngredientDetail
 }
