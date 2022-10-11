@@ -7,10 +7,10 @@ const RecipeList = () => {
       const response = await fetch("http://localhost:7777/recipe", {
         method: "GET",
       });
-      console.log(response);
       const Recipes = await response.json();
       setRecipes(Recipes);
     };
+
     fetchRecipes();
   }, []);
 

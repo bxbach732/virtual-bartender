@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: ".env" });
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
 app.use(bodyParser.json());
-app.use(cors);
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/hello", async (req, res) => {
