@@ -1,7 +1,19 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 const RecipeList = () => {
-  console.log("recipes");
+  const [recipes, setRecipes] = useState({});
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      const response = await fetch("http://localhost:7777/recipe", {
+        method: "GET",
+      });
+      console.log(response);
+      const Recipes = await response.json();
+      setRecipes(Recipes);
+    };
+    fetchRecipes();
+  }, []);
+
   return (
     <div>
       <h1>Recipes</h1>

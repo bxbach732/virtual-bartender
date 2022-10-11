@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
   mongodb:
-    image: mongo:latest 
+    image: mongo:latest
     volumes:
       - mongo:/data/db
     ports:
