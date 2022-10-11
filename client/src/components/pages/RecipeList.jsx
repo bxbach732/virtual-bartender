@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -17,13 +22,19 @@ const RecipeList = () => {
   return (
     <div>
       <h1>Recipes</h1>
-      {recipes.map((recipe) => (
-        <li key={recipe._id}>
-          Name: {recipe.name}
-          Description: {recipe.description}
-          Instruction: {recipe.instruction}
-        </li>
-      ))}
+      <Box>
+        <List>
+          {recipes.map((recipe) => [
+            <ListItem>
+              <ListItemText
+                primary={recipe.name}
+                secondary={recipe.description}
+                key={recipe._id}
+              />
+            </ListItem>,
+          ])}
+        </List>
+      </Box>
     </div>
   );
 };
