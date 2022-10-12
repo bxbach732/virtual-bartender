@@ -82,31 +82,25 @@ async function deleteIngredient (req, res) {
 
 async function findPossibleRecipes (req, res) {
     try {   
-        //Get the name of all the ingedients of the sbar shelf
         const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content;
-        console.log(ingredientIDFromShelf);
         let ingredientNameFromShelf = [];
         for (const ingredientID of ingredientIDFromShelf) {
             ingredientNameFromShelf.push((await ingredientController.listIngredientDetail(ingredientID)).name);
         }
-        // res.json( {message: ingredientNameFromShelf}); //ft
-        console.log("Name of the ingredients from bar shelf extracted"); //ft
+        console.log("Name of the ingredients from bar shelf extracted"); 
         console.log(ingredientNameFromShelf);
-        //Get all the recipes ingreidnets and store in an array (array of arrays).
-        //Find all the arrays that are the subsets of the barshelf array
+        
         const allRecipesData = await recipeModel.find().exec();
-        const possibleRecipeID = [];
+        const possibleRecipes = [];
+        const impossibleRecipes = [];
         for (const recipeEntry of allRecipesData) {
             if (recipeEntry.ingredient.every(ingredient => ingredientNameFromShelf.includes(ingredient))) {
-                possibleRecipeID.push(recipeEntry._id);
+                possibleRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+            } else {
+                impossibleRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
             }
         }
-
-        console.log(possibleRecipeID);
-        res.send("FOUND");
-        
-
-
+        res.json({ "Possible recipes": possibleRecipes, "Impossible recipes:" : impossibleRecipes});
     } catch (error) {
        res.status(500).send(error);
     }
