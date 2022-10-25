@@ -9,12 +9,29 @@ services:
       - mongodb
     env_file:
       - .env
+    networks:
+      - virtual-bartender
   mongodb:
     image: mongo:latest
     volumes:
       - mongo:/data/db
     ports:
       - "27017:27017"
+    networks:
+      - virtual-bartender
+  react-app:
+    build: ./client
+    stdin_open: true
+    restart: "always"
+    ports: 
+      - "3000:3000"
+    depends_on: 
+      - app
+    networks:
+      - virtual-bartender
 volumes:
   mongo:
     driver: local
+networks:
+  virtual-bartender:
+    driver: bridge
