@@ -17,6 +17,8 @@ services:
       - mongo:/data/db
     ports:
       - "27017:27017"
+    env_file:
+      - .env
     networks:
       - virtual-bartender
   react-app:
