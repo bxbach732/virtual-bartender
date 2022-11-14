@@ -17,4 +17,7 @@ router.put("/:id", recipeController.updateRecipe);
 //Delete a recipe
 router.delete("/:id", recipeController.deleteRecipe);
 
+//List the available and unavailable ingredients of a recipe based on the content of the shelf
+router.get("/:id/:sid", recipeController.listRecipeStatus);
+
 module.exports = router;
