@@ -880,4 +880,290 @@
   ],
   "thumbnail": "tba",
   "__v": 0
+},{
+  "_id": {
+    "$oid": "637245ba6cf8dbc93853dbf5"
+  },
+  "name": "Salty Dog",
+  "isAlcoholic": true,
+  "description": "A salty dog is a cocktail of gin, or vodka, and grapefruit juice, served in a highball glass with a salted rim. The salt is the only difference between a salty dog and a greyhound. Historically a gin drink, it is believed to date back to the 1920s.",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 40ml of gin and 100ml of grapefruit juice./n/n3. Pour into a salt-rimmed highball glass with ice.",
+  "ingredient": [
+    "Gin",
+    "Grapefruit Juice",
+    "Salt",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/4vfge01504890216.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6372468e6cf8dbc93853dbf7"
+  },
+  "name": "Sangria",
+  "isAlcoholic": true,
+  "description": "Sangria is an alcoholic beverage originating in Spain and Portugal. Under EU regulations only those two Iberian nations can label their product as Sangria; similar products from different regions are differentiated in name.",
+  "instruction": "1. Pour one bottle of red wine into a pitcher./n/n2. Cut an orange and a lemon into wedges, and slightly squeeze them into the wine./n/n3. Add other fruits according to your taste./n/n4. Add 3-4 teaspoons of sugar./n/n5. Pour 50ml of brandy and 200ml of ginger ale or soda (optionally) if you want the drink to be softer./n/n6. Add some ice cubes and stir.",
+  "ingredient": [
+    "Red Wine",
+    "Orange",
+    "Lemon",
+    "Brandy",
+    "Sugar",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/uqqvsp1468924228.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6372470e6cf8dbc93853dbf9"
+  },
+  "name": "Screwdriver",
+  "isAlcoholic": true,
+  "description": "A screwdriver is a popular alcoholic highball drink made with orange juice and vodka. In the UK, it is referred to as a vodka and orange. While the basic drink is simply the two ingredients, there are many variations. Many of the variations have different names in different parts of the world.",
+  "instruction": "1. Fill a highball glass with ice cubes./n/n2. Pour 50ml of vodka and 100ml of orange juice over the ice./n/n3. Stir gently and garnish with an orange slice.",
+  "ingredient": [
+    "Vodka",
+    "Orange Juice",
+    "Orange",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/8xnyke1504352207.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6372479d6cf8dbc93853dbfb"
+  },
+  "name": "Sea Breeze",
+  "isAlcoholic": true,
+  "description": "A Sea Breeze is a cocktail containing vodka with cranberry juice and grapefruit juice. The cocktail is usually consumed during summer months. The drink may be shaken in order to create a foamy surface. It is considered an IBA Official Cocktail.",
+  "instruction": "1. Fill a highball glass with ice cubes./n/n2. Pour 40ml of vodka, 120ml of cranberry juice, and 30ml of grapefruit juice over the ice./n/n3. Stir gently and garnish with an orange zest.",
+  "ingredient": [
+    "Vodka",
+    "Cranberry Juice",
+    "Grapefruit Juice",
+    "Orange",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/7rfuks1504371562.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637248356cf8dbc93853dbfd"
+  },
+  "name": "Shirley Temple",
+  "isAlcoholic": false,
+  "description": "The drink was named after iconic child actress Shirley Temple. Legend has it that when she was out to dinner at a nice restaurant with her parents and other Hollywood types who were all enjoying cocktails, the bartender made her a special nonalcoholic drink so she could feel fancy too.",
+  "instruction": "1. Fill a collins glass with ice cubes./n/n2. Add 60ml of ginger ale and 60ml of lemonade./n/n3. Add a dash of grenadine./n/n4. Stir well and garnish with a cherry.",
+  "ingredient": [
+    "Ginger Ale",
+    "Lemonade",
+    "Grenadine",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637248c86cf8dbc93853dbff"
+  },
+  "name": "Silver Bullet",
+  "isAlcoholic": true,
+  "description": "A very strong cocktail that combines scotch and gin.",
+  "instruction": "1. Fill a shaker with or mixing glass with ice./n/n2. Add 30ml of whiskey and 60ml of gin./n/n3. Stir and strain into a cocktail glass./n/n4. Garnish with a lemon twist.",
+  "ingredient": [
+    "Whiskey",
+    "Gin",
+    "Lemon",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637249716cf8dbc93853dc01"
+  },
+  "name": "South Side",
+  "isAlcoholic": true,
+  "description": "A South Side or Southside is an alcoholic beverage made with gin, lime juice, simple syrup and mint. A variant, the Southside Fizz, adds soda water.",
+  "instruction": "1. Fill a cocktail shaker with ice cubes./n/n2. Add 60ml of gin, 20ml of lime juice, and 20ml of sugar syrup./n/n3. Shake well, add a mint sprig and shake carefully./n/n4. Strain into a cocktail glass and garnish with a mint leaf or sprig.",
+  "ingredient": [
+    "Lime",
+    "Gin",
+    "Sugar Syrup",
+    "Mine",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724a0b6cf8dbc93853dc03"
+  },
+  "name": "Stay Sober",
+  "isAlcoholic": false,
+  "description": "A delightful, refreshing non-alcoholic cocktail. The ratio of ingredients can be varied according to your taste.",
+  "instruction": "1. Fill a highball glass with ice cubes./n/n2. Pour 30ml of apple juice and 30ml of cranberry juice./n/n3. Top with ginger beer.",
+  "ingredient": [
+    "Ginger Beer",
+    "Apple Juice",
+    "Cranberry Juice",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724b016cf8dbc93853dc05"
+  },
+  "name": "Strawberry Daiquiri",
+  "isAlcoholic": true,
+  "description": "The daiquiri is a cocktail whose main ingredients are rum, citrus juice, and sugar or other sweetener. The daiquiri is one of the six basic drinks listed in David A. Embury's classic The Fine Art of Mixing Drinks, which also lists some variations.",
+  "instruction": "1. Put some ice into the blender./n/n2. Add 30g of strawberries and 15g of sugar./n/n3. Pour 25ml of lemon juice and 10ml of lime juice into the blender./n/n4. Add 40ml of rum and blend until smooth./n/n5. Pour into cocktail glass and garnish with a strawberry..",
+  "ingredient": [
+    "Strawberry",
+    "Rum",
+    "Lime",
+    "Lemon",
+    "Sugar",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/deu59m1504736135.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724bce6cf8dbc93853dc07"
+  },
+  "name": "Tequila Slammer",
+  "isAlcoholic": true,
+  "description": "A Tequila Slammer is a cocktail served in a rocks glass. It is made with tequila and 7-Up.",
+  "instruction": "1. Pour 50ml of tequila into a rocks glass./n/n2. Add 50ml to 100ml of 7-Up./n/n3. Use one hand to hold the top of the glass and slam it onto a hard surface and drink.",
+  "ingredient": [
+    "Tequila",
+    "7-Up"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/43uhr51551451311.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724c6c6cf8dbc93853dc09"
+  },
+  "name": "Tequila Sunrise",
+  "isAlcoholic": true,
+  "description": "The tequila sunrise is a cocktail made of tequila, orange juice, and grenadine syrup. The drink is served unmixed in a tall glass. The modern drink originates from Sausalito, California, in the early 1970s after an earlier iteration created in the 1930s in Phoenix, Arizona.",
+  "instruction": "1. Fill a highball glass with ice cubes./n/n2. Pour 45ml of tequila adn 90ml of orange juice over the ice./n/n3. Add 15ml of grenadine. Do not stir./n/n4. Garnish with an orange slice.",
+  "ingredient": [
+    "Tequila",
+    "Orange Juice",
+    "Grenadine",
+    "Orange",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/quqyqp1480879103.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724d2e6cf8dbc93853dc0b"
+  },
+  "name": "Tom And Jerry",
+  "isAlcoholic": true,
+  "description": "A classic winter cocktail that is very popular during Christmas time.",
+  "instruction": "1. Seperate the egg white from the egg yolk and beat them seperately./n/n2. Pour the egg white on top of the yolk in an Irish coffee glass./n/n3. Carefully add 15ml of sugar syrup. 30ml of vodka and 30 ml of cognac./n/n4. Fill with hot milk and garnish with grated nutmeg.",
+  "ingredient": [
+    "Vodka",
+    "Egg",
+    "Sugar Syrup",
+    "Cognac",
+    "Milk",
+    "Nutmeg"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724dfa6cf8dbc93853dc0d"
+  },
+  "name": "Virgin Colada",
+  "isAlcoholic": false,
+  "description": "A non-alcoholic version of the Pina Colada cocktail.",
+  "instruction": "1. Put some crushed ice into a blender./n/n2. Add 40ml of coconut milk and 120ml of pineapple juice./n/n3. Blend until smooth and pour into a hurricane glass./n/n4. Top with whipped cream and garnish with a pineapple wedge.",
+  "ingredient": [
+    "Coconut Milk",
+    "Pineapple Juice",
+    "Pineapple",
+    "Ice",
+    "Whipped Cream"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724e7d6cf8dbc93853dc0f"
+  },
+  "name": "Ward 8",
+  "isAlcoholic": true,
+  "description": "The drink, by all accounts, was created at the Locke-Ober Café in Boston's eighth ward. Already nearly 20 years old when the drink was created there, the venerable French restaurant and bar survived until 2012, when it finally closed.",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 60ml of whiskey, 15ml of lemon juice, 15ml of orange juice, and a dash of grenadine./n/n3. Shake well and strain into a cocktail glass./n/n",
+  "ingredient": [
+    "Whiskey",
+    "Lemon",
+    "Grenadine",
+    "Orange Juice",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724f4c6cf8dbc93853dc11"
+  },
+  "name": "Weng Weng",
+  "isAlcoholic": true,
+  "description": "A popular but strong drink from the Philippines.",
+  "instruction": "1. Put some ice into a collins glass./n/n2. Pour 20ml of vodka, 20ml of tequila, 20ml of brandy, 20 of bourbon, 20ml of whiskey and 20ml of rum./n/n3. Fill in with equal part orange juiec and pineapple juice on top./n/n4. Add a dash of grenadine and stir gently.",
+  "ingredient": [
+    "Vodka",
+    "Tequila",
+    "Brandy",
+    "Bourbon",
+    "Whiskey",
+    "Rum",
+    "Orange Juice",
+    "Pineapple Juice",
+    "Grenadine",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63724ff76cf8dbc93853dc13"
+  },
+  "name": "Whiskey Sour",
+  "isAlcoholic": true,
+  "description": "The whiskey sour is a mixed drink containing whiskey, lemon juice, sugar, and optionally, a dash of egg white. It is a type of sour, a mixed drink with a base spirit, citrus juice, and a sweetener.",
+  "instruction": "1. Combine 50ml of bourbon, 20ml of lemon juice, and 20ml of sugar syrup into a cocktail shaker./n/n2. Add an egg white and dry shake vigorously without ice for 20-30 seconds./n/n3. Add ice, shake well again and strain into a goblet of rocks glass with ice.",
+  "ingredient": [
+    "Bourbon",
+    "Lemon",
+    "Sugar Syrup",
+    "Egg",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/hbkfsh1589574990.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637250456cf8dbc93853dc15"
+  },
+  "name": "Yorsh",
+  "isAlcoholic": true,
+  "description": "Yorsh, also known as mora grogg, is a Russian mixed drink consisting of beer thoroughly mixed with an ample quantity of vodka. It is traditionally drunk in a social setting, typically with a toast followed by downing a full glass of it at one go. It is commonly consumed in Russia.",
+  "instruction": "1. Pour 200ml of beer into a collins glass./n/n2. Add 40ml of vodka, stir well.",
+  "ingredient": [
+    "Beer",
+    "Vodka"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
 }]
