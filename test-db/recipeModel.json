@@ -1,20 +1,5 @@
 [{
   "_id": {
-    "$oid": "6345250f6b9db36e6d491d95"
-  },
-  "name": "Gin Tonic",
-  "isAlcoholic": true,
-  "description": "test",
-  "instruction": "test",
-  "ingredient": [
-    "Gin",
-    "Tonic Water",
-    "Ice"
-  ],
-  "thumbnail": "test",
-  "__v": 0
-},{
-  "_id": {
     "$oid": "634525476b9db36e6d491d97"
   },
   "name": "Impossible recipe #1",
@@ -46,33 +31,853 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "63455b439daf3f1f96ce9052"
+    "$oid": "636c5809b21b6917eb32a0aa"
+  },
+  "name": "Acapulco",
+  "isAlcoholic": true,
+  "description": "A stronger variation uses lime juice and sweet and sour instead of grapefruit and pineapple juice and is served in a cocktail glass",
+  "instruction": "1. Put some ice cubes into a shaker./n/n2.Add 50ml of tequila, 50ml of rum, 75ml of pineapple juice and 50ml of grapefruit juice./n/n3. Add a splash of lime juice and 10ml of sugar syrup.\n\n4. Shake well and strain into a glass.",
+  "ingredient": [
+    "Tequila",
+    "Rum",
+    "Pineapple Juice",
+    "Grapefruit Juice",
+    "Lime",
+    "Sugar Syrup",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/il9e0r1582478841.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f128e4a12bb040fc0e386"
+  },
+  "name": "7 & 7",
+  "isAlcoholic": true,
+  "description": "This cocktail is similar to the Cuba Libre and may refer to any drink consisting of whiskey mixed with lemon soft drink. It was originally made with Seagram's Seven Crown Whiskey, but any whiskey can be used",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 50ml of whiskey and 150ml of 7-Up./n/n3.Garnish with a lemon wedge",
+  "ingredient": [
+    "Whiskey",
+    "7-Up",
+    "Lemon",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f13604a12bb040fc0e388"
+  },
+  "name": "Ambassador",
+  "isAlcoholic": true,
+  "description": "tba",
+  "instruction": "1. Put some ice into a rocks glass./n/n2. Add 30ml of tequila, 50ml of orange juice, and 15ml of sugar syrup./n/n3. Stir well and garnish with an orange slice",
+  "ingredient": [
+    "Tequila",
+    "Orange Juice",
+    "Sugar Syrup",
+    "Orange",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f15034a12bb040fc0e38f"
+  },
+  "name": "Bacardi Cocktail",
+  "isAlcoholic": true,
+  "description": "This IBA official pre-dinner cocktail is the grenadine version of the cocktail, which originated in the US",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 45ml of rum, 20ml of lime juice, and 10ml of grenadine./n/n3. Shake well and strain into a chilled cocktail glass",
+  "ingredient": [
+    "Rum",
+    "Lime",
+    "Grenadine",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/n433t21504348259.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f15cb4a12bb040fc0e39b"
+  },
+  "name": "Banana Daiquiri",
+  "isAlcoholic": true,
+  "description": "A variation of the popular Daiquiri cocktail with bananas",
+  "instruction": "1. Put some crushed ice into a blender./n/n2. Add 45ml of rum, 20ml of lime juice, 5ml of sugar syrup, and half a fresh banana./n/n3. Blend until it is smooth and pour into a chilled glass.",
+  "ingredient": [
+    "Rum",
+    "Lime",
+    "Sugar Syrup",
+    "Banana",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/k1xatq1504389300.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f16614a12bb040fc0e3a6"
+  },
+  "name": "Banana Flash",
+  "isAlcoholic": false,
+  "description": "A delicious non-alcoholic summer beverage",
+  "instruction": "1. Put some ice, a peach, and a banana into a blender./n/n2.Add 150ml of orange juice./n/n3. Blend until smooth, and pour into a hurricane glass.",
+  "ingredient": [
+    "Banana",
+    "Peach",
+    "Orange Juice",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f17574a12bb040fc0e3a8"
+  },
+  "name": "Basil Julep",
+  "isAlcoholic": true,
+  "description": "A variation of the Mint Julep with basil instead of mint. An interesting twist to a well-known classic drink.",
+  "instruction": "1. Put a coupe of basil sprigs and 15ml of sugar syrup into a cocktail shaker./n/n2. Thoroughly muddle the mixture and add 50ml of bourbon./n/n3. Add several ice cubes and shake vigorously./n/n4. Strain into a rocks glass filled with ice cubes and garnish with a basil sprigs",
+  "ingredient": [
+    "Bourbon",
+    "Sugar Syrup",
+    "Basil",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f187e4a12bb040fc0e3aa"
+  },
+  "name": "Basil Smash",
+  "isAlcoholic": true,
+  "description": "Also known as the Gin Basil Smash, this cocktail is a new classic created in 2008 by Jörg Meyer at Bar Lion in Hamburg. The cocktail quickly became popular with its interesting fresh basil taste.",
+  "instruction": "1. Put a couple of basil sprigs and half a lemon (or 20ml of lemon juice) into a shaker./n/n2. Thoroughly muddle the mixture./n/n3. Add 15ml of sugar syrup and 50ml of gin./n/n4.Add several ice cubes and shake vigorously./n/n5. Strain into a rocks glass filled with ice cubes and garnish with a basil sprigs",
+  "ingredient": [
+    "Gin",
+    "Lemon",
+    "Sugar Syrup",
+    "Basil",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/jqh2141572807327.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f19514a12bb040fc0e3ac"
+  },
+  "name": "Bay Breeze",
+  "isAlcoholic": true,
+  "description": "Slightly more complicated than the Cape Cod cocktail. It is also caled Hawaiian Sea Breeze",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 40ml of vodka, 90ml of cranberry juice, and 30ml of pineapple juice./n/n3. Stir and garnish with a lime wedge",
+  "ingredient": [
+    "Vodka",
+    "Cranberry Juice",
+    "Pineapple Juice",
+    "Lime",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f1ab74a12bb040fc0e3ae"
+  },
+  "name": "Bee's Knees",
+  "isAlcoholic": true,
+  "description": "A sweet, citrus cocktail from the Prohibition times. One variation omits orange juice",
+  "instruction": "1. Combine 50ml of gin and 2 teaspoons of honey in a cocktail shaker./n/n2. Stir until the honey dissolves, and add 20ml of lemon juce or 20ml of orange juice./n/n3. Add ice and shake well./n/n4. Strain into a Martini glass or into a rocks glass with ice./n/n5. Garnish with an orange peel.",
+  "ingredient": [
+    "Gin",
+    "Honey",
+    "Lemon",
+    "Orange Juice",
+    "Orange",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/tx8ne41582475326.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f1bc54a12bb040fc0e3b0"
+  },
+  "name": "Boilermaker",
+  "isAlcoholic": true,
+  "description": "The name refers to a variety of methods of drinking whiskey and beer together. It is similar to Yorsh, where whiskey is substituted with vodka. The amount of beer can be varied according to taste. These methods could also be applied to any spirit of your choice.",
+  "instruction": "1. Pour 250ml of beer into a beer glass./n/n2. Drop a shot of whiskey into the beer so that it stays at the bottom./n/n",
+  "ingredient": [
+    "Beer",
+    "Whiskey"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f1c6d4a12bb040fc0e3b2"
+  },
+  "name": "Brandy eggnog",
+  "isAlcoholic": true,
+  "description": "tba",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 40ml of brandy, 50ml of milk, 10ml of sugar syrup, and an egg yolk./n/n3. Shake well and strain into a highball glass with ice./n/n4. Sprinkle with grated nutmeg.",
+  "ingredient": [
+    "Brandy",
+    "Milk",
+    "Sugar Syrup",
+    "Egg",
+    "Grated Nutmeg",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/xwrpsv1478820541.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f1d464a12bb040fc0e3b4"
+  },
+  "name": "Buck cocktails",
+  "isAlcoholic": true,
+  "description": "A buck is a cocktail that is made with ginger ale or ginger beer, citrus juice, and any of a number of base liquors. Buck cocktails are sometimes called mules due to the popularity of a vodka buck that is known as a Moscow Mule.",
+  "instruction": "1. Fill a collins glass with ice/n/n2. Pour 50ml of base liquor over the ice./n/n3. Add lime or lemon juice and top with giner ale or ginger beer.",
+  "ingredient": [
+    "Rum",
+    "Lime",
+    "Ginger Ale",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636f1de24a12bb040fc0e3b6"
+  },
+  "name": "Bumbo",
+  "isAlcoholic": true,
+  "description": "Bumbu is a drink made from rum, water, sugar, and nutmeg. Cinnamon is sometimes substituted for or added to the nutmeg.",
+  "instruction": "1. Drop 2 sugar subes into a rock glass./n/n2. Add 60ml of rum and 30ml of water./n/n3. Stir and sprinkle cinnamon and/or grated nutmeg",
+  "ingredient": [
+    "Sugar",
+    "Rum",
+    "Water",
+    "Cinnamon",
+    "Nutmeg"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff4e7dae3b9404def8c72"
+  },
+  "name": "Caipiroska",
+  "isAlcoholic": true,
+  "description": "A variation of Caipirinha made with vodka instead of Cachaça that is also popular in Brazil and nearby countries. Also known as Caipivodka or Caipirodka.",
+  "instruction": "1. Cut half a lime into wedges. Place them with sugar into a rocks glass and muddle./n/n2.Add 50ml of vodka and stir so that some sugar is dissolved./n/n3. Add crushed ice and stir a little bit to melt some of the ice./n/n4. Garnish with a lime piece.",
+  "ingredient": [
+    "Vodka",
+    "Lime",
+    "Sugar",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff5a7dae3b9404def8c74"
+  },
+  "name": "Canchanchara",
+  "isAlcoholic": true,
+  "description": "The Canchanchara is an IBA official cocktail made with Cuban aguardiente, honey, and fresh lime juice.",
+  "instruction": "1. Pour 15ml of honey, 15ml of lime juice, and 50ml of water into a rocks glass./n/n2. Mix well and spread the mixture on the bottom and sides of the glass./n/n3. Fill the glass with crushed ice, and pour 60ml of rum./n/n4. Garnish with a lime wedge",
+  "ingredient": [
+    "Rum",
+    "Honey",
+    "Lime",
+    "Water",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff617dae3b9404def8c76"
+  },
+  "name": "Cape Cod",
+  "isAlcoholic": true,
+  "description": "The Cape Cod or Cape Codder is a type of cocktail consisting of vodka and cranberry juice. Some recipes also call for squeezing a lime wedge over the glass and dropping it into the drink.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 40ml of vodka and 120ml of Cranberry Juice./n/n3. Stir well and garnish with a lime wedge.",
+  "ingredient": [
+    "Vodka",
+    "Cranberry Juice",
+    "Lime",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff730dae3b9404def8c78"
+  },
+  "name": "Clover Club",
+  "isAlcoholic": true,
+  "description": "This IBA official cocktail has been known of since the beginning of the 20th century and is named after the Philaddelphia men's club of the same name. A popular variation has grenadine instead of raspberry syrup.",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 45ml of gin, 15ml of grenadine, and 15ml of lemon juice./n/n3. Add several drops of egg white to create white foam on top of the drink./n/n4. Shake well and strain into a cocktail glass.",
+  "ingredient": [
+    "Gin",
+    "Grenadine",
+    "Lemon",
+    "Egg",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/t0aja61504348715.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff7eddae3b9404def8c7a"
+  },
+  "name": "Cuba Libre",
+  "isAlcoholic": true,
+  "description": "Often referred to as Rum and Cola, this IBA official cocktail became popular in the United States after the Andrews Sisters recorded a song named after the drink's ingredients in 1945, A popular variation often omits lime juice.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Pour 50ml of rum and 120ml of cola over the ice./n/n3. Add 10ml of lime juice./n/n4. Garnish with a lime slice.",
+  "ingredient": [
+    "Rum",
+    "Cola",
+    "Lime",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/ck6d0p1504388696.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff8f4dae3b9404def8c7c"
+  },
+  "name": "Culto A La Vida",
+  "isAlcoholic": true,
+  "description": "A Cuban cocktail registered by the rum brand Havana Club.",
+  "instruction": "1. Put 1 teaspoon of sugar into a collins glass./n/n2. Add 15ml of lime juice and dissolve the sugar./n/n3. Add some ice cubes./n/n4. Pour 120ml of cranberry juice and 60ml of rum./n/n5. Stir well and garnish with a lime wedge.",
+  "ingredient": [
+    "Rum",
+    "Sugar",
+    "Lime",
+    "Cranberry Juice",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ff987dae3b9404def8c7e"
+  },
+  "name": "Daiquiri",
+  "isAlcoholic": true,
+  "description": "The daiquiri is a cocktail whose main ingredients are rum, citrus juice, and sugar or other sweetener. The daiquiri is one of the six basic drinks listed in David A. Embury's classic The Fine Art of Mixing Drinks, which also lists some variations.",
+  "instruction": "1. Put ice into a shaker./n/n2. Add 60ml of rum, 20ml of lime juice and 2 bar spoons of sugar./n/n3. Shake and strain into a cocktail glass",
+  "ingredient": [
+    "Rum",
+    "Sugar",
+    "Lime",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/mrz9091589574515.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63706f06c50af5d35b748c0e"
+  },
+  "name": "Gibson",
+  "isAlcoholic": true,
+  "description": "The Gibson is a mixed drink made with gin and dry vermouth, and often garnished with a pickled onion. In its modern incarnation, it is considered a cousin of the ubiquitous martini, distinguished mostly by garnishing with an onion instead of an olive.",
+  "instruction": "1. Fill a shaker with ice and add 60ml of gin and 10ml of dry vermouth./n/n2. Stir and strain into a cocktail glass./n/n3. Garnish with an onion peel",
+  "ingredient": [
+    "Gin",
+    "Dry Vermouth",
+    "Onion",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63707267c50af5d35b748c50"
+  },
+  "name": "Gimlet",
+  "isAlcoholic": true,
+  "description": "The gimlet is a cocktail made of gin and lime cordial. A 1928 description of the drink was: gin, and a spot of lime. A description in the 1953 Raymond Chandler novel The Long Goodbye stated that a real gimlet is half gin and half Rose's lime juice and nothing else.",
+  "instruction": "1. Fill a mixing glass with ice cubes./n/n2. Add 60ml of gin and 15ml of lime juice./n/n3. Optionally, add 15ml of sugar syrup./n/n4. Stir and strain into a chilled cocktail glass./n/n5. Garnish with a lime wedge or twist.",
+  "ingredient": [
+    "Gin",
+    "Lime",
+    "Sugar Syrup",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/3xgldt1513707271.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6370733ec50af5d35b748c5f"
+  },
+  "name": "Gin and Sin",
+  "isAlcoholic": true,
+  "description": "This cocktail's name speaks for itself. Bright, strong and good for adventure. It may be prepared as a shot.",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 30ml of gin, 30ml of lemon juice, 30ml of orange juice, and a dash of grenadine./n/n3. Shake well and strain into a cocktail glass.",
+  "ingredient": [
+    "Gin",
+    "Orange Juice",
+    "Lemon",
+    "Grenadine",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637073f1c50af5d35b748c61"
+  },
+  "name": "Gin Fizz",
+  "isAlcoholic": true,
+  "description": "THe most popular cocktail in the fizz family, which includes cocktails that have acidic juice (lime or lemon) and carbonated water. It's an IBA official cocktail that has many variations with additions such as egg white, egg yolk or sparkling wine.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Pour 45ml of gin, 30ml of lemon juice and 10ml of sugar syrup./n/n3. Top with soda./n/n4. Garnish with a lemon slice.",
+  "ingredient": [
+    "Gin",
+    "Lemon",
+    "Sugar Syrup",
+    "Soda Water",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/drtihp1606768397.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637074f9c50af5d35b748c63"
+  },
+  "name": "Gin Rickey",
+  "isAlcoholic": true,
+  "description": "The rickey is a highball made from gin or bourbon, lime juice, and carbonated water. Little or no sugar is added to the rickey. There are variations to this cocktail and one of them includes grenadine.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 50ml of gin, 1 teaspoon of grenadine, and 30ml of lime juice. Top with soda./n/n3. Garnish with a lime wedge.",
+  "ingredient": [
+    "Gin",
+    "Lime",
+    "Soda Water",
+    "Grenadine",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/s00d6f1504883945.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63707590c50af5d35b748c65"
+  },
+  "name": "Gin Tonic",
+  "isAlcoholic": true,
+  "description": "Simple and always good. The gin to tonic ratio can be varied according to taste.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Pour 50ml of gin and 100ml of tonic over the ice./n/n3. Stir gently and garnish with a lime wedge",
+  "ingredient": [
+    "Gin",
+    "Lime",
+    "Tonic Water",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/qcgz0t1643821443.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63707625c50af5d35b748c67"
+  },
+  "name": "Greyhound",
+  "isAlcoholic": true,
+  "description": "THe Greyhound is a softer variation of the Salty Dog without salt. As with the Salty Dog, gin is often substituted with vodka.",
+  "instruction": "1. Fill a collins glass with ice cubes./n/n2. Add 50ml of gin and 200ml of grapefruit juice./n/n3. Stir well and garnish with a lemon wedge.",
+  "ingredient": [
+    "Gin",
+    "Grapefruit Juice",
+    "Lemon",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/g5upn41513706732.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63718dcdeb6f82ca3371c717"
+  },
+  "name": "Highball",
+  "isAlcoholic": true,
+  "description": "A classic popular cocktail that is best made with Canadian whiskey.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Pour 60ml of whiskey over the ice, and top with ginger ale.",
+  "ingredient": [
+    "Whiskey",
+    "Ginger Ale",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/66mt9b1619695719.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63718e7beb6f82ca3371c727"
+  },
+  "name": "Horny Bull (long)",
+  "isAlcoholic": true,
+  "description": "Similar to the Screwdriver cocktail but with tequila instead of vodka",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 50ml of tequila, and top with orange juice",
+  "ingredient": [
+    "Tequila",
+    "Orange Juice",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63718f14eb6f82ca3371c729"
+  },
+  "name": "Horny Bull (shot)",
+  "isAlcoholic": true,
+  "description": "This is a shooter version of the Horny Bull long drink. Some prefer it with vodka.",
+  "instruction": "1. Pour tequila and rum in equal proportions into a short glass./n/n2. Optionally, add vodka.",
+  "ingredient": [
+    "Tequila",
+    "Rum"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63718fd4eb6f82ca3371c738"
+  },
+  "name": "Hot Toddy",
+  "isAlcoholic": true,
+  "description": "A family of cocktails made of liquor (usually whiskey) and water with sugar or honey, as well as spices, served hot.",
+  "instruction": "1. Put 1 teaspoon of honey or sugar on the bottom of an Irish coffee glass./n/n2. Pour 45ml of brandy, whiskey or rum and 10ml of lemon juice./n/n3. Fill the glass with hot water or tea.",
+  "ingredient": [
+    "Honey",
+    "Whiskey",
+    "Lemon",
+    "Water"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/ggx0lv1613942306.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719087eb6f82ca3371c73a"
+  },
+  "name": "Irish Coffee",
+  "isAlcoholic": true,
+  "description": "Irish coffee is a caffeinated alcoholic drink consisting of Irish whiskey, hot coffee, and sugar, stirred, and topped with cream The coffee is drunk through the cream.",
+  "instruction": "1. Pour hot coffee into an Irish coffee glass./n/n2. Add 50ml of whiskey and add a teaspoon of sugar. Stir until the sugar is dissolved./n/n3. Float cream on top carefully.",
+  "ingredient": [
+    "Whiskey",
+    "Coffee",
+    "Cream",
+    "Sugar"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/sywsqw1439906999.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719ab37b948f4469c6da69"
   },
   "name": "Jack and Coke",
   "isAlcoholic": true,
-  "description": "test",
-  "instruction": "test",
+  "description": "A very simple and popular cocktail made by mixing whiskey and coca cola together.",
+  "instruction": "1. FIll a collins glass with ice./n/n2. Pour 50ml of whiskey and 150ml of cola over the ice./n/n3. Stir gently.",
   "ingredient": [
     "Whiskey",
     "Cola",
     "Ice"
   ],
-  "thumbnail": "test",
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/kjnt7z1504793319.jpg",
   "__v": 0
 },{
   "_id": {
-    "$oid": "63455b5b9daf3f1f96ce9054"
+    "$oid": "63719c2b7b948f4469c6dab6"
   },
-  "name": "Cuba Libre",
+  "name": "John Collins",
   "isAlcoholic": true,
-  "description": "test",
-  "instruction": "test",
+  "description": "An IBA official long drink. A popular variation uses bourbon instead of gin.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 45ml of gin, 30ml of lemon juice and 15ml of sugar syrup./n/n3. Top with soda and stir gently./n/n4. Garnish with a lemon slice and optionally a cherry.",
+  "ingredient": [
+    "Gin",
+    "Lemon",
+    "Sugar Syrup",
+    "Soda Water",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/0t4bv71606854479.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719d307b948f4469c6dab8"
+  },
+  "name": "Jägerbomb",
+  "isAlcoholic": true,
+  "description": "The Jägerbomb is a bomb mixed drink made by dropping a shot of Jägermeister into an energy drink, typically Red Bull. Sometimes, this drink is incorrectly identified as a traditional shot.",
+  "instruction": "1. Pour half a can of red bull into a pub glass./n/n2. Make a shot of Jägermeister and drop it into the glass with the red bull.",
+  "ingredient": [
+    "Jägermeister",
+    "Red Bull"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719dbd7b948f4469c6daba"
+  },
+  "name": "Lemon Drop",
+  "isAlcoholic": true,
+  "description": "A lemon drop is a vodka-based cocktail that has a lemony, sweet and sour flavor, prepared using lemon juice, triple sec and simple syrup. It has been described as a variant of the Vodka Martini, but is in actual fact a closer to a White Lady variant.",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 50ml of vodka, 25ml of lemon juice and 1 teaspoon of sugar syrup./n/n3. Shake well and strain into a chilled cocktail glass./n/n4. Garnish with a lemon twist.",
+  "ingredient": [
+    "Vodka",
+    "Lemon",
+    "Sugar Syrup",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/mtpxgk1504373297.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719e6e7b948f4469c6dabc"
+  },
+  "name": "Martini Dry",
+  "isAlcoholic": true,
+  "description": "The martini is a cocktail made with gin and vermouth, and garnished with an olive or a lemon twist. Over the years, the martini has become one of the best-known mixed alcoholic beverages. A popular variation, the vodka martini, uses vodka instead of gin for the cocktail's base spirit.",
+  "instruction": "1. Fill a shaker or mixing glass with ice./n/n2. Pour 60ml of gin and 10ml of dry vermouth./n/n3. Stir well and strain into a cocktail glass./n/n4. Garnish with an olive or a lemon twist and squeeze lemoon peel oil into the glass.",
+  "ingredient": [
+    "Gin",
+    "Dry Vermouth",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719f167b948f4469c6dabe"
+  },
+  "name": "Martini Vodka",
+  "isAlcoholic": true,
+  "description": "A variation of the Martini cocktail and makes a good pre-dinner cocktail.",
+  "instruction": "1. Fill a mixing glass with ice cubes./n/n2. Add 55ml of vodka and 15ml of dry vermouth./n/n3. Stir well and strain into a cocktail glass./n/n4. Squeeze a lemon peel into the glass and garnish with olive.",
+  "ingredient": [
+    "Vodka",
+    "Dry Vermouth",
+    "Lemon",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/qyxrqw1439906528.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63719f837b948f4469c6dac0"
+  },
+  "name": "Miami Beach",
+  "isAlcoholic": true,
+  "description": "tba",
+  "instruction": "1. Fill a shaker with ice cubes./n/n2. Add 30ml of whiskey, 30ml of dry vermouth, and 30ml of grapefruit juice./n/n3. Shake and strain into a cocktail glass.",
+  "ingredient": [
+    "Whiskey",
+    "Dry Vermouth",
+    "Grapefruit Juice",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a0207b948f4469c6dac2"
+  },
+  "name": "Mint Julep",
+  "isAlcoholic": true,
+  "description": "Mint julep is a mixed alcoholic drink, or cocktail, consisting primarily of bourbon, sugar, water, crushed or shaved ice, and fresh mint. As a bourbon-based cocktail, it is associated with the American South and the cuisine of the Southern United States in general, and the Kentucky Derby in particular.",
+  "instruction": "1. Put 1 teaspoon of sugar and mint into a rocks glass./n/n2. Pour a small amount of bourbon, and muddle for a while./n/n3. Fill the glass with ice, and add 50ml of bourbon or as much as can fit into the glass./n/n4. Garnish with a mint leaf.",
+  "ingredient": [
+    "Bourbon",
+    "Sugar",
+    "Mint",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/squyyq1439907312.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a0ea7b948f4469c6dac4"
+  },
+  "name": "Mojito",
+  "isAlcoholic": true,
+  "description": "Mojito is a traditional Cuban punch. The cocktail often consists of five ingredients: rum, sugar, lime juice, soda water, and mint. Its combination of sweetness, citrus, and herbaceous mint flavors is intended to complement the rum, and has made the mojito a popular summer drink.",
+  "instruction": "1. Put several sprigs of mint and 2 teaspoons of sugar into a highball glass./n/n2. Add 20ml of lime juice and muddle the mint./n/n3. Fill the glass with crushed ice./n/n4. Pour 45ml of rum, and top with soda water./n/n5. Garnish with a sprig of mint leaves and a lime slices.",
   "ingredient": [
     "Rum",
-    "Cola",
-    "Ice",
-    "Lime"
+    "Lime",
+    "Mint",
+    "Sugar",
+    "Soda Water",
+    "Ice"
   ],
-  "thumbnail": "test",
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a1b07b948f4469c6dad6"
+  },
+  "name": "Mojito Pomegranate",
+  "isAlcoholic": true,
+  "description": "A variation of the Mojito cocktail.",
+  "instruction": "1. Put several sprigs of mint and 2 teaspoons of sugar into a highball glass./n/n2. Add 30ml of lime juice and muddle the mint./n/n3. Fill the glass with crushed ice./n/n4. Pour 40ml of rum, 50ml of pomegranate juice, and top with 100ml of soda water./n/n5. Garnish with a sprig of mint leaves.",
+  "ingredient": [
+    "Rum",
+    "Lime",
+    "Mint",
+    "Sugar",
+    "Pomegranate Juice",
+    "Soda Water",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a2857b948f4469c6dad8"
+  },
+  "name": "Monkey Gland",
+  "isAlcoholic": true,
+  "description": "The Monkey Gland is a cocktail of gin, orange juice, grenadine and absinthe created in the 1920s by Harry MacElhone, owner of Harry's New York Bar in Paris, France. Some recipes substitute absinthe with pastis or Bénédictine.",
+  "instruction": "1. FIll a shaker with ice cubes./n/n2. Add 45ml of gin, 45ml of orange juice, 5ml of absinthe, and 5ml of grenadine./n/n3. Shake and strain into a cocktail glass.",
+  "ingredient": [
+    "Gin",
+    "Orange Juice",
+    "Absinthe",
+    "Grenadine",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/94psp81504350690.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a4f07b948f4469c6dadc"
+  },
+  "name": "Moscow Mule",
+  "isAlcoholic": true,
+  "description": "A Moscow mule is a cocktail made with vodka, ginger beer and lime juice, garnished with a slice or wedge of lime. The drink is a type of buck and is sometimes called a vodka buck. The Moscow mule is popularly served in a copper mug, which takes on the cold temperature of the liquid.",
+  "instruction": "1. Pour 45ml of vodka into a copper mug filled with crushed ice./n/n2. Add 120ml of ginger beer and 10ml of lime juice./n/n3. Garnish with a lime slice.",
+  "ingredient": [
+    "Vodka",
+    "Ginger Beer",
+    "Lime",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/3pylqc1504370988.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a5b07b948f4469c6dade"
+  },
+  "name": "Mulled Wine",
+  "isAlcoholic": true,
+  "description": "Mulled wine, also known as spiced wine, is an alcoholic drink usually made with red wine, along with various mulling spices and sometimes raisins, served hot or warm. It is a traditional drink during winter, especially around Christmas. It is usually served at Christmas markets in Europe, primarily in Germany.",
+  "instruction": "1. Heat a bottle or more of red wine in a pan./n/n2. Add cinnamon sticks, clove, sugar, and vanilla pods (optional)./n/n3. Add lemon wedge and wait for 10 minutes./n/n4. Heat until the wine almost boils, and serve in cup.",
+  "ingredient": [
+    "Red Wine",
+    "Cinnamon",
+    "Clove",
+    "Sugar",
+    "Lemon"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/iuwi6h1504735724.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a6817b948f4469c6dae0"
+  },
+  "name": "New York Sour",
+  "isAlcoholic": true,
+  "description": "The New York Sour is an IBA official cocktail. Largely similar to the whiskey sour, the New York sour adds a float of dry red wine to the drink.",
+  "instruction": "1. Pour 60ml of bourbon, 20ml of sugar syrup, and 30ml of lemon juice into a cocktail shaker./n/n2. Add ice and shake well./n/n3. Strain into a rocks glass filled with ice./n/n4. Top with 15ml of dry red wine./n/n5. Garnish with a lemon peel.",
+  "ingredient": [
+    "Bourbon",
+    "Sugar Syrup",
+    "Lemon",
+    "Red Wine",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/61wgch1504882795.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a7137b948f4469c6dae2"
+  },
+  "name": "Painkiller",
+  "isAlcoholic": true,
+  "description": "A Painkiller is a rum cocktail with a name trademarked by Pusser's Rum Ltd, their signature drink. It is often associated with the British Virgin Islands, its place of origin.",
+  "instruction": "1. Fill a shaker with ice./n/n2. Add 60ml of Rum, 30ml of coconut milk, 120ml of pineapple juice, and 30ml of orange juice./n/n3. Shake well and pour into a highball glass./n/n4. Garnish with grated nutmeg.",
+  "ingredient": [
+    "Rum",
+    "Coconut Milk",
+    "Pineaplle Juice",
+    "Orange Juice",
+    "Nutmeg",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a7aa7b948f4469c6dae4"
+  },
+  "name": "Pina Colada",
+  "isAlcoholic": true,
+  "description": "The piña colada is a cocktail made with rum, cream of coconut or coconut milk, and pineapple juice, usually served either blended or shaken with ice. It may be garnished with either a pineapple wedge, maraschino cherry, or both. There are two versions of the drink, both originating in Puerto Rico.",
+  "instruction": "1. Fill a blender or shaker with crushed ice./n/n2. Add 50ml of rum, 30ml of coconut cream and 50ml of pineapple juice./n/n3. Shake or blend until smooth and pour into a chilled glass./n/n4. Garnish with a pineapple wedge and optionally a cherry.",
+  "ingredient": [
+    "Rum",
+    "Coconut Cream",
+    "Pineaplle Juice",
+    "Pineapple",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/cpf4j51504371346.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a8177b948f4469c6dae6"
+  },
+  "name": "Pink Lady",
+  "isAlcoholic": true,
+  "description": "The Pink Lady is a classic gin-based cocktail with a long history. Its pink color is due to adding grenadine.",
+  "instruction": "1. Fill a shaker with ice cubes./n/n/2. Add 45ml of gin. 15ml of grenadine, and and egg white./n/n3. Shake well and strain into a cocktail glass./n/n4. Garnish with a cherry.",
+  "ingredient": [
+    "Gin",
+    "Grenadine",
+    "Egg",
+    "Ice"
+  ],
+  "thumbnail": "https://www.thecocktaildb.com/images/media/drink/5ia6j21504887829.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a8927b948f4469c6dae8"
+  },
+  "name": "Rickey Cocktails",
+  "isAlcoholic": true,
+  "description": "The rickey is a highball made from a base liquor, lime juice, and carbonated water. Little or no sugar is added to the rickey.",
+  "instruction": "1. Fill a highball glass with ice./n/n2. Add 50ml of liquor and 30ml of lime juice. Top with soda./n/n3. Garnish with a lime wedge",
+  "ingredient": [
+    "Rum",
+    "Lime",
+    "Soda Water",
+    "Ice"
+  ],
+  "thumbnail": "tba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6371a8ee7b948f4469c6daea"
+  },
+  "name": "Roy Rogers",
+  "isAlcoholic": false,
+  "description": "TA Roy Rogers is a non-alcoholic mixed drink made with cola and grenadine syrup, and traditionally garnished with a maraschino cherry. The drink's lack of alcoholic content allows it to be served as a mocktail to people who do not, cannot, or don't want to drink alcohol",
+  "instruction": "1. Put some ice cubes into a highball glass./n/n2. Pour 10ml of grenadine and fill the glass with cola./n/n3. Stir well and garnish with a cherry.",
+  "ingredient": [
+    "Grenadine",
+    "Cola",
+    "Ice"
+  ],
+  "thumbnail": "tba",
   "__v": 0
 }]

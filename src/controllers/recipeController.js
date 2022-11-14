@@ -48,10 +48,20 @@ async function deleteRecipe (req, res) {
     }
 }
 
+async function listRecipeStatus (req, res) {
+    try {
+        const data = await recipeModel.findById(req.params.id).exec();
+        res.send(data);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     listAll,
     listRecipe,
     createRecipe,
     updateRecipe,
-    deleteRecipe
+    deleteRecipe,
+    listRecipeStatus
 }

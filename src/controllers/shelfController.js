@@ -82,7 +82,7 @@ async function deleteIngredient (req, res) {
 
 async function findPossibleRecipes (req, res) {
     try {   
-        const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content;
+        const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content; //change with findbyid
         let ingredientNameFromShelf = [];
         for (const ingredientID of ingredientIDFromShelf) {
             ingredientNameFromShelf.push((await ingredientController.listIngredientDetail(ingredientID)).name);
