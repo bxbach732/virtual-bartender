@@ -25,11 +25,10 @@ const RecipeList = () => {
       <Box>
         <List>
           {recipes.map((recipe) => [
-            <ListItem>
+            <ListItem key={recipe._id}>
               <ListItemText
                 primary={recipe.name}
                 secondary={recipe.description}
-                key={recipe._id}
               />
             </ListItem>,
           ])}

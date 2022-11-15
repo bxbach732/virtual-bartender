@@ -15,8 +15,17 @@ const BarShelf = () => {
   const [recipes, setRecipes] = useState([]);
   const [possibleRecipes, setPossibleRecipes] = useState(recipes);
   const [impossibleRecipes, setImpossibleRecipes] = useState(recipes);
-
+  const ingredientTypes = [
+    "Alcohol",
+    "Beer",
+    "Juice",
+    "Soft drink",
+    "Misc",
+    "Fruit",
+    "Water",
+  ];
   useEffect(() => {
+    setUserID();
     const fetchRecipes = async () => {
       const response = await fetch("http://localhost:7777/recipe", {
         method: "GET",
@@ -36,28 +45,50 @@ const BarShelf = () => {
     };
     fetchIngredients();
   }, []);
+
+  function setUserID() {
+    const userID = localStorage.getItem("userID");
+    if (!userID) {
+      userID = "63434c64bc9c8709c0d64628";
+      localStorage.setItem("userID", userID);
+    }
+    const fetchShelf = async () => {
+      const response = await fetch("http://localhost:7777/shelf/" + userID, {
+        method: "GET",
+      });
+    };
+  }
+
+  function ingredientOnclick(id) {
+    console.log(id);
+  }
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={5}>
+        <h1>Ingredients</h1>
         <Grid item id="ingredients">
-          <h1>Ingredients</h1>
-          <h3>Alcoholic</h3>
-          <Button color="secondary" variant="outlined">
-            Tequila
-          </Button>
-          <Button color="secondary" variant="outlined">
-            Vodka
-          </Button>
-
-          <h3>Non-Alcoholic</h3>
+          {ingredients.map((ingredient) => [
+            <ListItem key={ingredient._id}>
+              <Button
+                onClick={() => {
+                  ingredientOnclick(ingredient._id);
+                }}
+                color="secondary"
+                variant="outlined"
+              >
+                {ingredient.name}
+              </Button>
+            </ListItem>,
+          ])}
         </Grid>
       </Grid>
       <Grid item xs={2}>
         <Grid item>
           <h2>Available recipes</h2>
           {recipes.map((recipe) => [
-            <ListItem>
-              <ListItemText primary={recipe.name} key={recipe._id} />
+            <ListItem key={recipe._id}>
+              <ListItemText primary={recipe.name} />
             </ListItem>,
           ])}
         </Grid>
@@ -66,8 +97,8 @@ const BarShelf = () => {
         <Grid item>
           <h2>Impossible recipes</h2>
           {recipes.map((recipe) => [
-            <ListItem>
-              <ListItemText primary={recipe.name} key={recipe._id} />
+            <ListItem key={recipe._id}>
+              <ListItemText primary={recipe.name} />
             </ListItem>,
           ])}
         </Grid>
