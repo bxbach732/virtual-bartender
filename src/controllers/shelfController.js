@@ -91,16 +91,36 @@ async function findPossibleRecipes (req, res) {
         console.log(ingredientNameFromShelf);
         
         const allRecipesData = await recipeModel.find().exec();
-        const possibleRecipes = [];
-        const impossibleRecipes = [];
+        const possibleALcoholicRecipes = [];
+        const possiblNonALcoholicRecipes = [];
+        const impossibleAlcoholicRecipes = [];
+        const impossibleNonAlcoholicRecipes = [];
+
         for (const recipeEntry of allRecipesData) {
             if (recipeEntry.ingredient.every(ingredient => ingredientNameFromShelf.includes(ingredient))) {
-                possibleRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                if (recipeEntry.isAlcoholic) {
+                    possibleALcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                } else {
+                    possiblNonALcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                }
             } else {
-                impossibleRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                if (recipeEntry.isAlcoholic) {
+                    impossibleAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                } else {
+                    impossibleNonAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                }
             }
         }
-        res.json({ "Possible recipes": possibleRecipes, "Impossible recipes:" : impossibleRecipes});
+        res.json({ 
+                    "Possible recipes": {
+                        "Alcoholic": possibleALcoholicRecipes, 
+                        "Non-Alcoholic": possiblNonALcoholicRecipes
+                    }, 
+                    "Impossible recipes:" : {
+                        "Alcoholic": impossibleAlcoholicRecipes, 
+                        "Non-Alcoholic": impossibleNonAlcoholicRecipes
+                    }
+                });
     } catch (error) {
        res.status(500).send(error);
     }
