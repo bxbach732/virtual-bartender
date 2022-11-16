@@ -25,7 +25,7 @@ const BarShelf = () => {
     "Water",
   ];
   useEffect(() => {
-    setUserID();
+    createUser();
     const fetchRecipes = async () => {
       const response = await fetch("http://localhost:7777/recipe", {
         method: "GET",
@@ -35,9 +35,7 @@ const BarShelf = () => {
     };
     fetchRecipes();
     const fetchIngredients = async () => {
-      const response = await fetch("http://localhost:7777/ingredient", {
-        method: "GET",
-      });
+      const response = await getURL("ingredient");
       console.log(response.body);
       const Ingredients = await response.json();
       setIngredients(Ingredients);
@@ -46,19 +44,21 @@ const BarShelf = () => {
     fetchIngredients();
   }, []);
 
-  function setUserID() {
-    const userID = localStorage.getItem("userID");
+  async function createUser() {
+    let userID = localStorage.getItem("userID");
     if (!userID) {
       userID = "63434c64bc9c8709c0d64628";
       localStorage.setItem("userID", userID);
     }
-    const fetchShelf = async () => {
-      const response = await fetch("http://localhost:7777/shelf/" + userID, {
-        method: "GET",
-      });
-    };
+    const response = await getURL("shelf/" + userID);
   }
 
+  async function getURL(path) {
+    const response = await fetch("http://localhost:7777/" + path, {
+      method: "GET",
+    });
+    return response;
+  }
   function ingredientOnclick(id) {
     console.log(id);
   }

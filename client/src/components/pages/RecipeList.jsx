@@ -26,6 +26,13 @@ const RecipeList = () => {
         <List>
           {recipes.map((recipe) => [
             <ListItem key={recipe._id}>
+              <img
+                src={recipe.thumbnail}
+                alt="No thumbnail :("
+                width="100"
+                height="100"
+              />
+
               <ListItemText
                 primary={recipe.name}
                 secondary={recipe.description}
