@@ -12,7 +12,6 @@ const RecipeList = () => {
     setRecipes(await response.json());
   });
 
-  console.log(recipes);
   return (
     <div>
       <h1>Recipes</h1>

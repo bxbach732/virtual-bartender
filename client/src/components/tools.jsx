@@ -10,14 +10,15 @@ async function getURL(path) {
 async function postURL(path, items) {
   const response = await fetch("http://localhost:7777/" + path, {
     method: "POST",
-    body: JSON.stringify(user),
+    body: JSON.stringify(items),
+    headers: { "Content-Type": "application/json" },
   });
   return response;
 }
-async function putURL(path, items) {
+async function putURL(path) {
   const response = await fetch("http://localhost:7777/" + path, {
-    method: "POST",
+    method: "PUT",
   });
   return response;
 }
-export { getURL, postURL };
+export { getURL, postURL, putURL };

@@ -3,17 +3,17 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { getURL, postURL } from "../tools";
+import { getURL, postURL, putURL } from "../tools";
 import { useAuth } from "../useAuth";
 import { useNavigate } from "react-router-dom";
 
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
-  const [recipes, setRecipes] = useState([]);
   const [shelf, setShelf] = useState([]);
+  const [shelfID, setShelfID] = useState();
 
-  const [possibleRecipes, setPossibleRecipes] = useState(recipes);
-  const [impossibleRecipes, setImpossibleRecipes] = useState(recipes);
+  const [possibleRecipes, setPossibleRecipes] = useState([]);
+  const [impossibleRecipes, setImpossibleRecipes] = useState([]);
   const ingredientTypes = [
     "Alcohol",
     "Beer",
@@ -30,33 +30,47 @@ const BarShelf = () => {
     if (!auth.user) {
       navigate("/sign");
     }
-    console.log(auth.user._id);
-    fetchShelf();
-    const fetchRecipes = async () => {
-      const response = await getURL("recipe");
-      //const response = await getURL("recipe");
-      const Recipes = await response.json();
-      setRecipes(Recipes);
+    const fetchShelfID = async () => {
+      const idResponse = await getURL("user/" + auth.user._id + "/shelf");
+      const Shelf = await idResponse.json();
+      setShelfID(Shelf._id);
     };
-    fetchRecipes();
+    fetchShelfID();
+    fetchShelf();
+
     const fetchIngredients = async () => {
       const response = await getURL("ingredient");
       const Ingredients = await response.json();
       setIngredients(Ingredients);
     };
     fetchIngredients();
+    fetchPossibleRecipes();
   }, []);
 
   async function fetchShelf() {
-    const response = await getURL("shelf/" + auth.user._id);
-    const Shelf = await response.json();
-    setShelf(Shelf);
-    console.log(Shelf);
+    if (shelfID) {
+      const response = await getURL("shelf/" + shelfID);
+
+      const shelfData = await response.json();
+      setShelf(shelfData);
+    }
+    console.log(shelf);
   }
 
   async function ingredientOnclick(id) {
-    const response = await postURL("shelf/" + auth.user._id + "/add/" + id);
-    console.log(id);
+    const response = await putURL("shelf/" + shelfID + "/add/" + id);
+    const shelfData = await response.json();
+    setShelf(shelfData);
+
+    fetchPossibleRecipes();
+  }
+
+  async function fetchPossibleRecipes() {
+    const response = await getURL("shelf/" + shelfID + "/possible-recipe");
+    const possibleRecipes = await response.json();
+    setPossibleRecipes(possibleRecipes["Possible recipes"]);
+    setImpossibleRecipes(possibleRecipes["Impossible recipes:"]);
+    console.log(impossibleRecipes);
   }
 
   return (
@@ -82,9 +96,9 @@ const BarShelf = () => {
       <Grid item xs={2}>
         <Grid item>
           <h2>Available recipes</h2>
-          {recipes.map((recipe) => [
-            <ListItem key={recipe._id}>
-              <ListItemText primary={recipe.name} />
+          {possibleRecipes.map((recipe) => [
+            <ListItem key={recipe.id}>
+              <ListItemText key={recipe.id} primary={recipe.name} />
             </ListItem>,
           ])}
         </Grid>
@@ -92,9 +106,9 @@ const BarShelf = () => {
       <Grid item xs={3}>
         <Grid item>
           <h2>Impossible recipes</h2>
-          {recipes.map((recipe) => [
-            <ListItem key={recipe._id}>
-              <ListItemText primary={recipe.name} />
+          {impossibleRecipes.map((recipe) => [
+            <ListItem key={recipe.id}>
+              <ListItemText key={recipe.id} primary={recipe.name} />
             </ListItem>,
           ])}
         </Grid>

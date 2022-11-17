@@ -116,7 +116,7 @@ async function findPossibleRecipes (req, res) {
                         "Alcoholic": possibleALcoholicRecipes, 
                         "Non-Alcoholic": possiblNonALcoholicRecipes
                     }, 
-                    "Impossible recipes:" : {
+                    "Impossible recipes" : {
                         "Alcoholic": impossibleAlcoholicRecipes, 
                         "Non-Alcoholic": impossibleNonAlcoholicRecipes
                     }
