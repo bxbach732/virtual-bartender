@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "6376a8bc08db22e41f8952fc"
+  },
+  "productId": {
+    "$oid": "636c5809b21b6917eb32a0aa"
+  },
+  "rating": 6,
+  "comment": "it's aight",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6376aaf208db22e41f895309"
+  },
+  "productId": {
+    "$oid": "636c5809b21b6917eb32a0aa"
+  },
+  "rating": 10,
+  "comment": "best thing i've ever had",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6376ab0108db22e41f89530b"
+  },
+  "productId": {
+    "$oid": "636c5809b21b6917eb32a0aa"
+  },
+  "rating": 7,
+  "comment": "decent cocktail",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6376ab1808db22e41f89530d"
+  },
+  "productId": {
+    "$oid": "636f128e4a12bb040fc0e386"
+  },
+  "rating": 10,
+  "comment": "hecking wowzer",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6376ab2508db22e41f89530f"
+  },
+  "productId": {
+    "$oid": "636f128e4a12bb040fc0e386"
+  },
+  "rating": 10,
+  "comment": "very good",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6376ab2c08db22e41f895311"
+  },
+  "productId": {
+    "$oid": "636f128e4a12bb040fc0e386"
+  },
+  "rating": 3,
+  "comment": "meh",
+  "__v": 0
+}]
