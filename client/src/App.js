@@ -8,21 +8,26 @@ import NotFound from "./components/pages/NotFound";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./components/materialui/theme";
+import { ProvideAuth } from "./components/useAuth";
+import Sign from "./components/pages/Sign";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Navbar></Navbar>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/barshelf" element={<BarShelf />}></Route>
-          <Route path="/recipes" element={<RecipeList />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </div>
-    </ThemeProvider>
+    <ProvideAuth>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <Navbar></Navbar>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/barshelf" element={<BarShelf />}></Route>
+            <Route path="/recipes" element={<RecipeList />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/sign" element={<Sign />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </div>
+      </ThemeProvider>
+    </ProvideAuth>
   );
 }
 

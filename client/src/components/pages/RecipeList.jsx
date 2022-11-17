@@ -4,14 +4,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
+import { getURL } from "../tools";
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      const response = await fetch("http://localhost:7777/recipe", {
-        method: "GET",
-      });
+      const response = await getURL("recipe");
       const Recipes = await response.json();
       setRecipes(Recipes);
     };

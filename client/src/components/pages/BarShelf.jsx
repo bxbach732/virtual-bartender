@@ -3,13 +3,9 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-const types = ["Liquid", "Fruit", "Spice"];
-const ingredientList = [
-  { name: "tequila", isalcoholic: "true", type: "Liquid" },
-  { name: "vodka", isalcoholic: "true", type: "Liquid" },
-  { name: "banana", type: "Fruit" },
-  { name: "mint", type: "Spice" },
-];
+import { getURL } from "../tools";
+import { useAuth } from "../useAuth";
+
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
@@ -24,22 +20,22 @@ const BarShelf = () => {
     "Fruit",
     "Water",
   ];
+  const auth = useAuth();
+
   useEffect(() => {
+    console.log(auth.user);
     createUser();
     const fetchRecipes = async () => {
-      const response = await fetch("http://localhost:7777/recipe", {
-        method: "GET",
-      });
+      const response = await getURL("recipe");
+      //const response = await getURL("recipe");
       const Recipes = await response.json();
       setRecipes(Recipes);
     };
     fetchRecipes();
     const fetchIngredients = async () => {
       const response = await getURL("ingredient");
-      console.log(response.body);
       const Ingredients = await response.json();
       setIngredients(Ingredients);
-      console.log(Ingredients);
     };
     fetchIngredients();
   }, []);
@@ -51,14 +47,10 @@ const BarShelf = () => {
       localStorage.setItem("userID", userID);
     }
     const response = await getURL("shelf/" + userID);
+    const Shelf = await response.json();
+    console.log(Shelf);
   }
 
-  async function getURL(path) {
-    const response = await fetch("http://localhost:7777/" + path, {
-      method: "GET",
-    });
-    return response;
-  }
   function ingredientOnclick(id) {
     console.log(id);
   }
