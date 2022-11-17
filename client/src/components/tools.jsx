@@ -10,6 +10,13 @@ async function getURL(path) {
 async function postURL(path, items) {
   const response = await fetch("http://localhost:7777/" + path, {
     method: "POST",
+    body: JSON.stringify(user),
+  });
+  return response;
+}
+async function putURL(path, items) {
+  const response = await fetch("http://localhost:7777/" + path, {
+    method: "POST",
   });
   return response;
 }
