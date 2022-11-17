@@ -4,7 +4,10 @@ const userController = require("../controllers/userController");
 
 //Read all users
 router.get("/", userController.listAll);
-  
+
+//Get the userid from the phone number or from the email address
+router.get("/id", userController.getUserID);
+
 //Read a specific user
 router.get("/:id", userController.listUser);
 
