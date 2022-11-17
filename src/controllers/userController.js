@@ -72,11 +72,29 @@ async function getShelf (req, res) {
     }
 }
 
+async function getUserID (req, res) { //get userid from phone or email
+    try {
+        // if (req.params.email !== "") {
+        //     const data = await userModel.findOne({ 'email': req.params.email }).exec();
+        // } else if (req.params.phone !== "") {
+        //     const data = await userModel.findOne({ 'phone': req.params.phone }).exec();
+        // }
+        const data = await userModel.find({
+            "email": req.query.email,
+            "phone": req.query.phone
+        }).exec();
+        res.send(data[0]._id); 
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     listAll,
     listUser,
     createUser,
     updateUser,
     deleteUser,
-    getShelf
+    getShelf,
+    getUserID
 }
