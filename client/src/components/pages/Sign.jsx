@@ -26,6 +26,7 @@ export default function Sign() {
       return;
     }
     const id = auth.signup(user.email, user.phone);
+    navigate("/");
   }
   return (
     <Fragment>

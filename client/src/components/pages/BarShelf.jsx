@@ -3,12 +3,15 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { getURL } from "../tools";
+import { getURL, postURL } from "../tools";
 import { useAuth } from "../useAuth";
+import { useNavigate } from "react-router-dom";
 
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const [shelf, setShelf] = useState([]);
+
   const [possibleRecipes, setPossibleRecipes] = useState(recipes);
   const [impossibleRecipes, setImpossibleRecipes] = useState(recipes);
   const ingredientTypes = [
@@ -21,10 +24,14 @@ const BarShelf = () => {
     "Water",
   ];
   const auth = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(auth.user);
-    createUser();
+    if (!auth.user) {
+      navigate("/sign");
+    }
+    console.log(auth.user._id);
+    fetchShelf();
     const fetchRecipes = async () => {
       const response = await getURL("recipe");
       //const response = await getURL("recipe");
@@ -40,18 +47,15 @@ const BarShelf = () => {
     fetchIngredients();
   }, []);
 
-  async function createUser() {
-    let userID = localStorage.getItem("userID");
-    if (!userID) {
-      userID = "63434c64bc9c8709c0d64628";
-      localStorage.setItem("userID", userID);
-    }
-    const response = await getURL("shelf/" + userID);
+  async function fetchShelf() {
+    const response = await getURL("shelf/" + auth.user._id);
     const Shelf = await response.json();
+    setShelf(Shelf);
     console.log(Shelf);
   }
 
-  function ingredientOnclick(id) {
+  async function ingredientOnclick(id) {
+    const response = await postURL("shelf/" + auth.user._id + "/add/" + id);
     console.log(id);
   }
 

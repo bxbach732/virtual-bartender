@@ -1,5 +1,6 @@
 //Auth hook from: https://usehooks.com/useAuth/
 import React, { useState, useEffect, useContext, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { postURL } from "./tools";
 
 const authContext = createContext();
@@ -20,6 +21,7 @@ export const useAuth = () => {
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   //Save the user to state.
   const signin = (email, phone) => {
@@ -41,6 +43,7 @@ function useProvideAuth() {
 
   const signout = () => {
     setUser(false);
+    navigate("/");
   };
 
   // Return the user object and auth methods
