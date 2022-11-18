@@ -9,11 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
-  const [shelf, setShelf] = useState([]);
+  const [shelf, setShelf] = useState({ content: [] });
   const [shelfID, setShelfID] = useState();
 
-  const [possibleRecipes, setPossibleRecipes] = useState([]);
-  const [impossibleRecipes, setImpossibleRecipes] = useState([]);
+  const [possibleRecipes, setPossibleRecipes] = useState();
+  const [impossibleRecipes, setImpossibleRecipes] = useState();
   const ingredientTypes = [
     "Alcohol",
     "Beer",
@@ -50,27 +50,27 @@ const BarShelf = () => {
   async function fetchShelf() {
     if (shelfID) {
       const response = await getURL("shelf/" + shelfID);
-
+      console.log("WHatt");
       const shelfData = await response.json();
       setShelf(shelfData);
+      console.log(shelf);
     }
-    console.log(shelf);
   }
 
   async function ingredientOnclick(id) {
     const response = await putURL("shelf/" + shelfID + "/add/" + id);
     const shelfData = await response.json();
     setShelf(shelfData);
+    console.log(shelf);
 
     fetchPossibleRecipes();
   }
 
   async function fetchPossibleRecipes() {
     const response = await getURL("shelf/" + shelfID + "/possible-recipe");
-    const possibleRecipes = await response.json();
-    setPossibleRecipes(possibleRecipes["Possible recipes"]);
-    setImpossibleRecipes(possibleRecipes["Impossible recipes:"]);
-    console.log(impossibleRecipes);
+    const PossibleRecipes = await response.json();
+    setPossibleRecipes(PossibleRecipes["Possible recipes"]);
+    setImpossibleRecipes(PossibleRecipes["Impossible recipes"]);
   }
 
   return (
@@ -84,6 +84,11 @@ const BarShelf = () => {
                 onClick={() => {
                   ingredientOnclick(ingredient._id);
                 }}
+                style={
+                  shelf.content.includes(ingredient._id)
+                    ? { color: "white", backgroundColor: "#493725" }
+                    : { borderColor: "black" }
+                }
                 color="secondary"
                 variant="outlined"
               >
@@ -96,21 +101,39 @@ const BarShelf = () => {
       <Grid item xs={2}>
         <Grid item>
           <h2>Available recipes</h2>
-          {possibleRecipes.map((recipe) => [
-            <ListItem key={recipe.id}>
-              <ListItemText key={recipe.id} primary={recipe.name} />
-            </ListItem>,
-          ])}
+          <h3>Alcoholic</h3>
+          {possibleRecipes &&
+            possibleRecipes.Alcoholic.map((recipe) => [
+              <ListItem key={recipe.id}>
+                <ListItemText key={recipe.id} primary={recipe.name} />
+              </ListItem>,
+            ])}
+          <h3>Non-Alcoholic</h3>
+          {possibleRecipes &&
+            possibleRecipes["Non-Alcoholic"].map((recipe) => [
+              <ListItem key={recipe.id}>
+                <ListItemText key={recipe.id} primary={recipe.name} />
+              </ListItem>,
+            ])}
         </Grid>
       </Grid>
       <Grid item xs={3}>
         <Grid item>
           <h2>Impossible recipes</h2>
-          {impossibleRecipes.map((recipe) => [
-            <ListItem key={recipe.id}>
-              <ListItemText key={recipe.id} primary={recipe.name} />
-            </ListItem>,
-          ])}
+          <h3>Alcoholic</h3>
+          {impossibleRecipes &&
+            impossibleRecipes.Alcoholic.map((recipe) => [
+              <ListItem key={recipe.id}>
+                <ListItemText key={recipe.id} primary={recipe.name} />
+              </ListItem>,
+            ])}
+          <h3>Non-Alcoholic</h3>
+          {impossibleRecipes &&
+            impossibleRecipes["Non-Alcoholic"].map((recipe) => [
+              <ListItem key={recipe.id}>
+                <ListItemText key={recipe.id} primary={recipe.name} />
+              </ListItem>,
+            ])}
         </Grid>
       </Grid>
     </Grid>
