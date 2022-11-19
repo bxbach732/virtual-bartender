@@ -50,7 +50,6 @@ const BarShelf = () => {
   async function fetchShelf() {
     if (shelfID) {
       const response = await getURL("shelf/" + shelfID);
-      console.log("WHatt");
       const shelfData = await response.json();
       setShelf(shelfData);
       console.log(shelf);
@@ -58,15 +57,20 @@ const BarShelf = () => {
   }
 
   async function ingredientOnclick(id) {
-    const response = await putURL("shelf/" + shelfID + "/add/" + id);
-    const shelfData = await response.json();
+    let shelfData = {};
+    if (shelf.content.includes(id)) {
+      const response = await putURL("shelf/" + shelfID + "/delete/" + id);
+      shelfData = await response.json();
+    } else {
+      const response = await putURL("shelf/" + shelfID + "/add/" + id);
+      shelfData = await response.json();
+    }
     setShelf(shelfData);
-    console.log(shelf);
-
     fetchPossibleRecipes();
   }
 
   async function fetchPossibleRecipes() {
+    console.log("shelf/" + shelfID + "/possible-recipe");
     const response = await getURL("shelf/" + shelfID + "/possible-recipe");
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
