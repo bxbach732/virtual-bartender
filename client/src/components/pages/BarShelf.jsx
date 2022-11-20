@@ -9,8 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
-  const [shelf, setShelf] = useState({ content: [] });
-  const [shelfID, setShelfID] = useState();
+  const [shelf, setShelf] = useState({ _id: "", content: [] });
 
   const [possibleRecipes, setPossibleRecipes] = useState();
   const [impossibleRecipes, setImpossibleRecipes] = useState();
@@ -30,39 +29,27 @@ const BarShelf = () => {
     if (!auth.user) {
       navigate("/sign");
     }
-    const fetchShelfID = async () => {
+    const fetchBarshelf = async () => {
       const idResponse = await getURL("user/" + auth.user._id + "/shelf");
       const Shelf = await idResponse.json();
-      setShelfID(Shelf._id);
-    };
-    fetchShelfID();
-    fetchShelf();
-
-    const fetchIngredients = async () => {
-      const response = await getURL("ingredient");
-      const Ingredients = await response.json();
+      setShelf(Shelf);
+      if (shelf._id != "") {
+        fetchPossibleRecipes();
+      }
+      const ingredientResponse = await getURL("ingredient");
+      const Ingredients = await ingredientResponse.json();
       setIngredients(Ingredients);
     };
-    fetchIngredients();
-    fetchPossibleRecipes();
+    fetchBarshelf();
   }, []);
-
-  async function fetchShelf() {
-    if (shelfID) {
-      const response = await getURL("shelf/" + shelfID);
-      const shelfData = await response.json();
-      setShelf(shelfData);
-      console.log(shelf);
-    }
-  }
 
   async function ingredientOnclick(id) {
     let shelfData = {};
     if (shelf.content.includes(id)) {
-      const response = await putURL("shelf/" + shelfID + "/delete/" + id);
+      const response = await putURL("shelf/" + shelf._id + "/delete/" + id);
       shelfData = await response.json();
     } else {
-      const response = await putURL("shelf/" + shelfID + "/add/" + id);
+      const response = await putURL("shelf/" + shelf._id + "/add/" + id);
       shelfData = await response.json();
     }
     setShelf(shelfData);
@@ -70,8 +57,8 @@ const BarShelf = () => {
   }
 
   async function fetchPossibleRecipes() {
-    console.log("shelf/" + shelfID + "/possible-recipe");
-    const response = await getURL("shelf/" + shelfID + "/possible-recipe");
+    console.log("shelf/" + shelf._id + "/possible-recipe");
+    const response = await getURL("shelf/" + shelf._id + "/possible-recipe");
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
     setImpossibleRecipes(PossibleRecipes["Impossible recipes"]);

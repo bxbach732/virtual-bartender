@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import { Link } from "react-router-dom";
+
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import { getURL } from "../tools";
@@ -31,11 +33,12 @@ const RecipeList = () => {
                 width="100"
                 height="100"
               />
-
-              <ListItemText
-                primary={recipe.name}
-                secondary={recipe.description}
-              />
+              <Link to={"/recipes/" + recipe._id}>
+                <ListItemText
+                  primary={recipe.name}
+                  secondary={recipe.description}
+                />
+              </Link>
             </ListItem>,
           ])}
         </List>

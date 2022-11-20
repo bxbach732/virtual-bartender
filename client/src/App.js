@@ -6,6 +6,7 @@ import RecipeList from "./components/pages/RecipeList";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 import Navbar from "./components/Navbar";
+import IndividualRecipe from "./components/pages/IndividualRecipe";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./components/materialui/theme";
 import { ProvideAuth } from "./components/useAuth";
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/barshelf" element={<BarShelf />}></Route>
             <Route path="/recipes" element={<RecipeList />}></Route>
+            <Route path="/recipes/:id" element={<IndividualRecipe />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/sign" element={<Sign />}></Route>
             <Route path="*" element={<NotFound />}></Route>
