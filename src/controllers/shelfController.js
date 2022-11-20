@@ -82,7 +82,8 @@ async function deleteIngredient (req, res) {
 
 async function findPossibleRecipes (req, res) {
     try {   
-        const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content; //change with findbyid
+        const ingredientIDFromShelf = (await shelfModel.findById(req.params.id).exec()).content;
+        //const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content;
         let ingredientNameFromShelf = [];
         for (const ingredientID of ingredientIDFromShelf) {
             ingredientNameFromShelf.push((await ingredientController.listIngredientDetail(ingredientID)).name);
@@ -122,7 +123,8 @@ async function findPossibleRecipes (req, res) {
                     }
                 });
     } catch (error) {
-       res.status(500).send(error);
+       //res.status(500).send(error);
+       throw(error)
     }
 }
 
