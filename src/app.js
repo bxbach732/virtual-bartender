@@ -9,6 +9,7 @@ const recipeRouter = require("./routes/recipeRouter");
 const shelfRouter = require("./routes/shelfRouter");
 const userRouter = require("./routes/userRouter");
 const reviewRouter = require("./routes/reviewRouter");
+const authRouter = require("./routes/authRouter");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -33,6 +34,7 @@ app.use("/recipe", recipeRouter);
 app.use("/shelf", shelfRouter);
 app.use("/user", userRouter);
 app.use("/review", reviewRouter);
+app.use("/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(`Listen to ${HOST}:${PORT}`);
