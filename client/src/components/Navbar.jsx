@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import styles from "../scss/main.scss";
 import { useAuth } from "./useAuth";
-import useStyles from "./materialui/Styles";
+import useStyles from "./materialui/styles";
 
 const Navbar = () => {
   const classes = useStyles();
