@@ -1,8 +1,10 @@
 require("dotenv").config({ path: ".env" });
 const mongoose = require("mongoose");
 
+const uri = process.env.MONGODB_URI;
+
 try {
-    mongoose.connect('mongodb://mongodb:27017/virtual-bar', {
+    mongoose.connect(uri, {
         useNewUrlParser: true, 
         useUnifiedTopology: true,
         auth: {
