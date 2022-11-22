@@ -7,13 +7,16 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import styles from "../scss/main.scss";
 import { useAuth } from "./useAuth";
+import useStyles from "./materialui/styles";
+
 const Navbar = () => {
+  const classes = useStyles();
   const auth = useAuth();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={styles.test}>
         <Toolbar>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} className={classes.example}>
             <Grid item>
               <Link to="/">
                 <Button type="button" variant="contained" color="secondary">
@@ -29,11 +32,18 @@ const Navbar = () => {
                   </Button>
                 </Link>
               ) : (
-                <Link to="/sign">
-                  <Button type="button" variant="contained" color="secondary">
-                    Sign in
-                  </Button>
-                </Link>
+                <div>
+                  <Link to="/signup">
+                    <Button type="button" variant="contained" color="secondary">
+                      Sign up
+                    </Button>
+                  </Link>
+                  <Link to="/login">
+                    <Button type="button" variant="contained" color="secondary">
+                      Log in
+                    </Button>
+                  </Link>
+                </div>
               )}
             </Grid>
             <Grid item>

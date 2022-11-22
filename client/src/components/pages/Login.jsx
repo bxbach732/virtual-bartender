@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-export default function Sign() {
+export default function Login() {
   //User is set unto this state.
   const [user, setUsers] = useState(null);
   const auth = useAuth();
@@ -25,7 +25,7 @@ export default function Sign() {
       alert("Write your credentials first!");
       return;
     }
-    const id = auth.signup(user.email, user.phone);
+    const id = auth.signin(user.email, user.phone);
     navigate("/");
   }
   return (

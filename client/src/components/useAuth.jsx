@@ -1,10 +1,9 @@
 //Auth hook from: https://usehooks.com/useAuth/
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { postURL } from "./tools";
+import { getURL, postURL } from "./tools";
 
 const authContext = createContext();
-
 // Provider component that wraps your app and makes auth object ...
 // ... available to any child component that calls useAuth().
 export function ProvideAuth({ children }) {
@@ -24,11 +23,15 @@ function useProvideAuth() {
   const navigate = useNavigate();
 
   //Save the user to state.
-  const signin = (email, phone) => {
-    //setUser(response.user);
-    //return response.user;
+  const signin = async (email, phone) => {
+    const query = "?email=" + email + "&phone=" + phone;
+    const response = await getURL("user/id" + query);
+    const jsonres = await response.json();
+    setUser(jsonres);
+    return jsonres;
   };
 
+  //Save the user to state
   const signup = async (email, phone) => {
     const body = {
       email: email,
@@ -37,8 +40,8 @@ function useProvideAuth() {
     };
     const response = await postURL("user", body);
     const jsonres = await response.json();
-    setUser(jsonres);
-    return jsonres;
+    setUser(jsonres._id);
+    return jsonres._id;
   };
 
   const signout = () => {
