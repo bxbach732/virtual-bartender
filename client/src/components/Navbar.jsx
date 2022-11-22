@@ -29,11 +29,18 @@ const Navbar = () => {
                   </Button>
                 </Link>
               ) : (
-                <Link to="/sign">
-                  <Button type="button" variant="contained" color="secondary">
-                    Sign in
-                  </Button>
-                </Link>
+                <div>
+                  <Link to="/signup">
+                    <Button type="button" variant="contained" color="secondary">
+                      Sign up
+                    </Button>
+                  </Link>
+                  <Link to="/login">
+                    <Button type="button" variant="contained" color="secondary">
+                      Log in
+                    </Button>
+                  </Link>
+                </div>
               )}
             </Grid>
             <Grid item>

@@ -30,12 +30,9 @@ const BarShelf = () => {
       navigate("/sign");
     }
     const fetchBarshelf = async () => {
-      const idResponse = await getURL("user/" + auth.user._id + "/shelf");
+      const idResponse = await getURL("user/" + auth.user + "/shelf");
       const Shelf = await idResponse.json();
       setShelf(Shelf);
-      if (shelf._id != "") {
-        fetchPossibleRecipes();
-      }
       const ingredientResponse = await getURL("ingredient");
       const Ingredients = await ingredientResponse.json();
       setIngredients(Ingredients);
