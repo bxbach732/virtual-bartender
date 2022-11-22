@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { getURL, postURL } from "./tools";
 
 const authContext = createContext();
-
 // Provider component that wraps your app and makes auth object ...
 // ... available to any child component that calls useAuth().
 export function ProvideAuth({ children }) {
@@ -32,6 +31,7 @@ function useProvideAuth() {
     return jsonres;
   };
 
+  //Save the user to state
   const signup = async (email, phone) => {
     const body = {
       email: email,

@@ -27,7 +27,7 @@ const BarShelf = () => {
 
   useEffect(() => {
     if (!auth.user) {
-      navigate("/sign");
+      navigate("/signup");
     }
     const fetchBarshelf = async () => {
       const idResponse = await getURL("user/" + auth.user + "/shelf");
