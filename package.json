@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "v16.14.0"
   },
   "repository": {
     "type": "git",
