@@ -25,6 +25,7 @@ export default function Login() {
       alert("Write your credentials first!");
       return;
     }
+
     const id = auth.signin(user.email, user.phone);
     navigate("/");
   }

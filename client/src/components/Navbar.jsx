@@ -16,53 +16,59 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={styles.test}>
         <Toolbar>
-          <Grid container spacing={3} className={classes.example}>
-            <Grid item>
+          <Grid container spacing={3} className={classes.gridContainer}>
+            <Grid item >
               <Link to="/">
-                <Button type="button" variant="contained" color="secondary">
+                <Button className="link-item" type="button" variant="contained" color="secondary">
                   Home
                 </Button>
               </Link>
             </Grid>
-            <Grid item>
               {auth.user ? (
+            <Grid item >
                 <Link to="/barshelf">
-                  <Button type="button" variant="contained" color="secondary">
+                  <Button className="link-item" type="button" variant="contained" color="secondary">
                     Bar Shelf
                   </Button>
                 </Link>
+            </Grid>
+
               ) : (
-                <div>
+                <Fragment>
+                  <Grid item >
                   <Link to="/signup">
-                    <Button type="button" variant="contained" color="secondary">
+                    <Button className="link-item" type="button" variant="contained" color="secondary">
                       Sign up
                     </Button>
                   </Link>
+                  </Grid>
+                  <Grid item >
                   <Link to="/login">
-                    <Button type="button" variant="contained" color="secondary">
+                    <Button className="link-item" type="button" variant="contained" color="secondary">
                       Log in
                     </Button>
                   </Link>
-                </div>
+                  </Grid>
+
+                </Fragment>
               )}
-            </Grid>
-            <Grid item>
+            <Grid item >
               <Link to="/recipes">
-                <Button type="button" variant="contained" color="secondary">
+                <Button className="link-item" type="button" variant="contained" color="secondary">
                   Recipe List
                 </Button>
               </Link>
             </Grid>
-            <Grid item>
+            <Grid item >
               <Link to="/about">
-                <Button type="button" variant="contained" color="secondary">
+                <Button className="link-item" type="button" variant="contained" color="secondary">
                   About
                 </Button>
               </Link>
             </Grid>
           </Grid>
           {auth.user ? (
-            <Button
+            <Button className="link-item"
               type="button"
               variant="contained"
               color="secondary"

@@ -4,6 +4,7 @@ import ListItem from "@mui/material/ListItem";
 import { getURL } from "../tools";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
+
 const IndividualRecipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
