@@ -1,8 +1,9 @@
 import React from "react";
 
-async function getURL(path) {
+async function getURL(path, headers) {
   const response = await fetch("http://localhost:7777/" + path, {
     method: "GET",
+    headers: headers,
   });
   return response;
 }
