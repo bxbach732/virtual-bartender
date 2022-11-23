@@ -33,11 +33,6 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <div>
-                  <Link to="/signup">
-                    <Button type="button" variant="contained" color="secondary">
-                      Sign up
-                    </Button>
-                  </Link>
                   <Link to="/login">
                     <Button type="button" variant="contained" color="secondary">
                       Log in

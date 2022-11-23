@@ -13,15 +13,7 @@ const BarShelf = () => {
 
   const [possibleRecipes, setPossibleRecipes] = useState();
   const [impossibleRecipes, setImpossibleRecipes] = useState();
-  const ingredientTypes = [
-    "Alcohol",
-    "Beer",
-    "Juice",
-    "Soft drink",
-    "Misc",
-    "Fruit",
-    "Water",
-  ];
+
   const auth = useAuth();
   const navigate = useNavigate();
 
@@ -82,7 +74,6 @@ const BarShelf = () => {
           {Object.keys(ingredients).map(function (key, index) {
             return (
               <ul key={index}>
-                {console.log(key)}
                 <h3>{key}</h3>
                 {ingredients[key].map((ingredient) => {
                   return (
