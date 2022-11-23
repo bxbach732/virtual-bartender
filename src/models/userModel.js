@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const userSchema = new Schema(
     {
         email: String,
-        phone: String,
+        authID: String,
         isAdmin: Boolean
     }
 );

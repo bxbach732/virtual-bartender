@@ -23,9 +23,23 @@ function useProvideAuth() {
   const navigate = useNavigate();
 
   //Save the user to state.
-  const signin = async (email, phone) => {
-    const query = "?email=" + email + "&phone=" + phone;
-    const response = await getURL("user/id" + query);
+  const sendotp = async (email) => {
+    const body = {
+      email: email,
+    };
+    const response = await postURL("auth/login", body);
+    const jsonres = await response.json();
+    console.log(jsonres);
+    setUser(jsonres);
+    return jsonres;
+  };
+
+  const checkotp = async (email, otp) => {
+    const body = {
+      email: email,
+      otp: otp,
+    };
+    const response = await postURL("auth/authenticate", body);
     const jsonres = await response.json();
     setUser(jsonres);
     return jsonres;
@@ -38,6 +52,7 @@ function useProvideAuth() {
       phone: phone,
       isAdmin: false,
     };
+
     const response = await postURL("user", body);
     const jsonres = await response.json();
     setUser(jsonres._id);
@@ -52,7 +67,8 @@ function useProvideAuth() {
   // Return the user object and auth methods
   return {
     user,
-    signin,
+    sendotp,
+    checkotp,
     signup,
     signout,
   };
