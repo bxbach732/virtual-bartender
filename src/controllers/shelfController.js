@@ -91,18 +91,9 @@ async function deleteIngredient (req, res) {
     }
 }
 
-const sorter = (a, b) => {
-    if(a.missing.length < b.missing.length) {
-       return -1;
-    } else {
-       return 1;
-    }
- }
-
 async function findPossibleRecipes (req, res) {
     try {   
         const ingredientIDFromShelf = (await shelfModel.findById(req.params.id).exec()).content;
-        //const ingredientIDFromShelf = (await shelfModel.find().exec())[0].content;
         let ingredientNameFromShelf = [];
         for (const ingredientID of ingredientIDFromShelf) {
             ingredientNameFromShelf.push((await ingredientController.listIngredientDetail(ingredientID)).name);
