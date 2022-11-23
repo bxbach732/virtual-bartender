@@ -2,6 +2,17 @@ const { shelfModel } = require("../models/shelfModel")
 const ingredientController = require("../controllers/ingredientController");
 const { recipeModel } = require("../models/recipeModel");
 
+//Sort helper function
+const sortHelper = (x, y) => {
+    if(x.missing.length < y.missing.length) {
+        return -1;
+    } else if (x.missing.length > y.missing.length) {
+        return 1;
+    } else {
+        return 0;
+    }
+ }
+
 async function listAll (req, res) {
     try {
         const data = await shelfModel.find().exec();
@@ -80,6 +91,14 @@ async function deleteIngredient (req, res) {
     }
 }
 
+const sorter = (a, b) => {
+    if(a.missing.length < b.missing.length) {
+       return -1;
+    } else {
+       return 1;
+    }
+ }
+
 async function findPossibleRecipes (req, res) {
     try {   
         const ingredientIDFromShelf = (await shelfModel.findById(req.params.id).exec()).content;
@@ -105,13 +124,24 @@ async function findPossibleRecipes (req, res) {
                     possiblNonALcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
                 }
             } else {
+                let missingIngredient = [];
+                for (const ingredient of recipeEntry.ingredient) {
+                    if (!ingredientNameFromShelf.includes(ingredient)) {
+                        missingIngredient.push(ingredient);
+                    }
+                }
                 if (recipeEntry.isAlcoholic) {
-                    impossibleAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                    impossibleAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id, missing: missingIngredient });
                 } else {
-                    impossibleNonAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                    impossibleNonAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id, missing: missingIngredient });
                 }
             }
         }
+        
+        //Sort the impossible recipes based on the amount of ingredients missing descendingly
+        impossibleAlcoholicRecipes.sort(sortHelper);
+        impossibleNonAlcoholicRecipes.sort(sortHelper);
+
         res.json({ 
                     "Possible recipes": {
                         "Alcoholic": possibleALcoholicRecipes, 
@@ -123,8 +153,7 @@ async function findPossibleRecipes (req, res) {
                     }
                 });
     } catch (error) {
-       //res.status(500).send(error);
-       throw(error)
+        res.status(500).send(error);
     }
 }
 
