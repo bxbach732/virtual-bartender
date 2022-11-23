@@ -32,13 +32,25 @@ const BarShelf = () => {
     const fetchBarshelf = async () => {
       const idResponse = await getURL("user/" + auth.user + "/shelf");
       const Shelf = await idResponse.json();
+      if (!Shelf.content) {
+        navigate("/signup");
+      }
       setShelf(Shelf);
       const ingredientResponse = await getURL("ingredient");
       const Ingredients = await ingredientResponse.json();
-      setIngredients(Ingredients);
+      const ingredientTypes = Ingredients.reduce((types, item) => {
+        const type = types[item.type] || [];
+        type.push(item);
+        types[item.type] = type;
+        return types;
+      }, {});
+      setIngredients(ingredientTypes);
     };
     fetchBarshelf();
   }, []);
+  useEffect(() => {
+    fetchPossibleRecipes();
+  }, [shelf]);
 
   async function ingredientOnclick(id) {
     let shelfData = {};
@@ -59,6 +71,7 @@ const BarShelf = () => {
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
     setImpossibleRecipes(PossibleRecipes["Impossible recipes"]);
+    console.log(impossibleRecipes);
   }
 
   return (
@@ -66,24 +79,34 @@ const BarShelf = () => {
       <Grid item xs={5}>
         <h1>Ingredients</h1>
         <Grid item id="ingredients">
-          {ingredients.map((ingredient) => [
-            <ListItem key={ingredient._id}>
-              <Button
-                onClick={() => {
-                  ingredientOnclick(ingredient._id);
-                }}
-                style={
-                  shelf.content.includes(ingredient._id)
-                    ? { color: "white", backgroundColor: "#493725" }
-                    : { borderColor: "black" }
-                }
-                color="secondary"
-                variant="outlined"
-              >
-                {ingredient.name}
-              </Button>
-            </ListItem>,
-          ])}
+          {Object.keys(ingredients).map(function (key, index) {
+            return (
+              <ul key={index}>
+                {console.log(key)}
+                <h3>{key}</h3>
+                {ingredients[key].map((ingredient) => {
+                  return (
+                    <ListItem key={ingredient._id}>
+                      <Button
+                        onClick={() => {
+                          ingredientOnclick(ingredient._id);
+                        }}
+                        style={
+                          shelf.content.includes(ingredient._id)
+                            ? { color: "white", backgroundColor: "#493725" }
+                            : { borderColor: "black" }
+                        }
+                        color="secondary"
+                        variant="outlined"
+                      >
+                        {ingredient.name}
+                      </Button>
+                    </ListItem>
+                  );
+                })}
+              </ul>
+            );
+          })}
         </Grid>
       </Grid>
       <Grid item xs={2}>
@@ -112,14 +135,22 @@ const BarShelf = () => {
           {impossibleRecipes &&
             impossibleRecipes.Alcoholic.map((recipe) => [
               <ListItem key={recipe.id}>
-                <ListItemText key={recipe.id} primary={recipe.name} />
+                <ListItemText
+                  key={recipe.id}
+                  primary={recipe.name}
+                  secondary={recipe.missing.map((item) => item).join(", ")}
+                />
               </ListItem>,
             ])}
           <h3>Non-Alcoholic</h3>
           {impossibleRecipes &&
             impossibleRecipes["Non-Alcoholic"].map((recipe) => [
               <ListItem key={recipe.id}>
-                <ListItemText key={recipe.id} primary={recipe.name} />
+                <ListItemText
+                  key={recipe.id}
+                  primary={recipe.name}
+                  secondary={recipe.missing.map((item) => item).join(", ")}
+                />
               </ListItem>,
             ])}
         </Grid>
