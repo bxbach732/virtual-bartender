@@ -1,4 +1,6 @@
 const { recipeModel } = require("../models/recipeModel")
+const { shelfModel } = require("../models/shelfModel")
+const ingredientController = require("../controllers/ingredientController");
 
 async function listAll (req, res) {
     try {
@@ -50,8 +52,26 @@ async function deleteRecipe (req, res) {
 
 async function listRecipeStatus (req, res) {
     try {
-        const data = await recipeModel.findById(req.params.id).exec();
-        res.send(data);
+        const recipeIngredient = (await recipeModel.findById(req.params.id).exec()).ingredient;
+        const ingredientIDFromShelf = (await shelfModel.findById(req.params.sid).exec()).content;
+        let ingredientNameFromShelf = [];
+        for (const ingredientID of ingredientIDFromShelf) {
+            ingredientNameFromShelf.push((await ingredientController.listIngredientDetail(ingredientID)).name);
+        }
+        let availableIngredient = [];
+        let unavailableIngredient = [];
+        
+        for (const ingredient of recipeIngredient) {
+            if (ingredientNameFromShelf.includes(ingredient)) {
+                availableIngredient.push(ingredient);
+            } else {
+                unavailableIngredient.push(ingredient);
+            }
+        }
+        res.json({ 
+            "Available ingredient": availableIngredient, 
+            "Unavailable ingredient" : unavailableIngredient
+        });
     } catch (error) {
         res.status(500).send(error);
     }

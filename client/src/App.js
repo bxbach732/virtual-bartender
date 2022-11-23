@@ -10,8 +10,8 @@ import IndividualRecipe from "./components/pages/IndividualRecipe";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./components/materialui/theme";
 import { ProvideAuth } from "./components/useAuth";
-import SignUp from "./components/pages/SignUp";
 import Login from "./components/pages/Login";
+import Contact from "./components/pages/Contact";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             <Route path="/recipes" element={<RecipeList />}></Route>
             <Route path="/recipes/:id" element={<IndividualRecipe />}></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path="/signup" element={<SignUp />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
