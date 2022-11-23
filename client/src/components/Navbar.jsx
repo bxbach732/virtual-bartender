@@ -60,6 +60,13 @@ const Navbar = () => {
                 </Button>
               </Link>
             </Grid>
+            <Grid item>
+              <Link to="/contact">
+                <Button type="button" variant="contained" color="secondary">
+                  Contact
+                </Button>
+              </Link>
+            </Grid>
           </Grid>
           {auth.user ? (
             <Button
