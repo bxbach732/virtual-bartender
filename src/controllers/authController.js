@@ -1,3 +1,5 @@
+const { userModel } = require("../models/userModel")
+
 async function initiatePasswordless (req, res) {
   try {
     const response = await fetch(`${process.env.ISSUER_BASE_URL}/passwordless/start`, {
@@ -48,10 +50,41 @@ async function authenticate (req, res) {
     if (data.error) {
       res.status(401);
     }
+
+    const another_response = await fetch(`${process.env.ISSUER_BASE_URL}/userinfo`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + data.access_token
+      },
+    });
+
+    const userData = await another_response.json()
+    const authID = userData.sub.split("|")[1];
+    const email = userData.email;
+    
+    const existedUserCheck = await userModel.find({"email": email}).exec();
+    console.log(existedUserCheck);
+    
+    if (existedUserCheck.length == 0) {
+      const createdUser = await fetch("http://localhost:7777/user", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                "email": email,
+                "authID": authID,
+                "isAdmin": false
+              })
+      });
+    }
+
     res.send(data);
 
   } catch (error) {
-    res.status(500).send(error);
+    //res.status(500).send(error);
+    throw(error)
   };
 }
 
