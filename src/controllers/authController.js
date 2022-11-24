@@ -83,8 +83,8 @@ async function authenticate (req, res) {
     res.send(data);
 
   } catch (error) {
-    //res.status(500).send(error);
-    throw(error)
+    res.status(500).send(error);
+    //throw(error)
   };
 }
 
