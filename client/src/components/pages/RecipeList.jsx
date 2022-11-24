@@ -12,7 +12,7 @@ const RecipeList = () => {
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      const response = await getURL("recipe");
+      const response = await getURL("/recipe");
       const Recipes = await response.json();
       setRecipes(Recipes);
     };

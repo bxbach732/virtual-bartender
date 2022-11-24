@@ -27,7 +27,7 @@ function useProvideAuth() {
     const body = {
       email: email,
     };
-    const response = await postURL("auth/login", body);
+    const response = await postURL("/auth/login", body);
     const jsonres = await response.json();
     console.log(jsonres);
     return jsonres;
@@ -38,7 +38,7 @@ function useProvideAuth() {
       email: email,
       otp: otp,
     };
-    const response = await postURL("auth/authenticate", body);
+    const response = await postURL("/auth/authenticate", body);
     const jsonres = await response.json();
     if (jsonres.access_token) {
       const profile = await getprofile(jsonres.access_token);
@@ -52,7 +52,7 @@ function useProvideAuth() {
     const headers = {
       Authorization: "Bearer " + token,
     };
-    const response = await getURL("auth/profile", headers);
+    const response = await getURL("/auth/profile", headers);
     if (response.status == 401) return false;
     const jsonres = await response.json();
     console.log(jsonres.sub);
