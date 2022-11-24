@@ -67,7 +67,7 @@ async function authenticate (req, res) {
     console.log(existedUserCheck);
     
     if (existedUserCheck.length == 0) {
-      const createdUser = await fetch("/user", {
+      const createdUser = await fetch("https://virtual-bartender-app.herokuapp.com/user", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"

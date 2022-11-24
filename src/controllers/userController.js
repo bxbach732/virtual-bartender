@@ -27,7 +27,7 @@ async function createUser (req, res) {
         const userID = newUser.authID;
         const data = await newUser.save();
 
-        const createdShelf = await fetch("/shelf", {
+        const createdShelf = await fetch("https://virtual-bartender-app.herokuapp.com/shelf", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
