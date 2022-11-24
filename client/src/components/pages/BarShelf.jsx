@@ -102,14 +102,18 @@ const BarShelf = () => {
           {possibleRecipes &&
             possibleRecipes.Alcoholic.map((recipe) => [
               <ListItem key={recipe.id}>
-                <ListItemText key={recipe.id} primary={recipe.name} />
+                <Link to={"/recipes/" + recipe.id}>
+                  <ListItemText key={recipe.id} primary={recipe.name} />
+                </Link>
               </ListItem>,
             ])}
           <h3>Non-Alcoholic</h3>
           {possibleRecipes &&
             possibleRecipes["Non-Alcoholic"].map((recipe) => [
               <ListItem key={recipe.id}>
-                <ListItemText key={recipe.id} primary={recipe.name} />
+                <Link to={"/recipes/" + recipe.id}>
+                  <ListItemText key={recipe.id} primary={recipe.name} />
+                </Link>
               </ListItem>,
             ])}
         </Grid>
@@ -121,22 +125,26 @@ const BarShelf = () => {
           {impossibleRecipes &&
             impossibleRecipes.Alcoholic.map((recipe) => [
               <ListItem key={recipe.id}>
-                <ListItemText
-                  key={recipe.id}
-                  primary={recipe.name}
-                  secondary={recipe.missing.map((item) => item).join(", ")}
-                />
+                <Link to={"/recipes/" + recipe.id}>
+                  <ListItemText
+                    key={recipe.id}
+                    primary={recipe.name}
+                    secondary={recipe.missing.map((item) => item).join(", ")}
+                  />
+                </Link>
               </ListItem>,
             ])}
           <h3>Non-Alcoholic</h3>
           {impossibleRecipes &&
             impossibleRecipes["Non-Alcoholic"].map((recipe) => [
               <ListItem key={recipe.id}>
-                <ListItemText
-                  key={recipe.id}
-                  primary={recipe.name}
-                  secondary={recipe.missing.map((item) => item).join(", ")}
-                />
+                <Link to={"/recipes/" + recipe.id}>
+                  <ListItemText
+                    key={recipe.id}
+                    primary={recipe.name}
+                    secondary={recipe.missing.map((item) => item).join(", ")}
+                  />
+                </Link>
               </ListItem>,
             ])}
         </Grid>
