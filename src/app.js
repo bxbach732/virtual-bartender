@@ -1,5 +1,6 @@
 require("dotenv").config({ path: ".env" });
 
+const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const db = require("./db/database");
@@ -35,6 +36,19 @@ app.use("/shelf", shelfRouter);
 app.use("/user", userRouter);
 app.use("/review", reviewRouter);
 app.use("/auth", authRouter);
+
+// //
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
+
+if (process.env.NODE_ENV === "production") {
+  console.log("Starting on production");
+  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "../client/build"))
+  );
+}
 
 app.listen(PORT, () => {
   console.log(`Listen to ${HOST}:${PORT}`);

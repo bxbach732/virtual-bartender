@@ -27,10 +27,9 @@ function useProvideAuth() {
     const body = {
       email: email,
     };
-    const response = await postURL("auth/login", body);
+    const response = await postURL("/auth/login", body);
     const jsonres = await response.json();
     console.log(jsonres);
-    setUser(jsonres);
     return jsonres;
   };
 
@@ -39,28 +38,36 @@ function useProvideAuth() {
       email: email,
       otp: otp,
     };
-    const response = await postURL("auth/authenticate", body);
+    const response = await postURL("/auth/authenticate", body);
     const jsonres = await response.json();
-    setUser(jsonres);
-    return jsonres;
+    if (jsonres.access_token) {
+      const profile = await getprofile(jsonres.access_token);
+      return jsonres;
+    } else {
+      return false;
+    }
   };
 
-  //Save the user to state
-  const signup = async (email, phone) => {
-    const body = {
-      email: email,
-      phone: phone,
-      isAdmin: false,
+  const getprofile = async (token) => {
+    const headers = {
+      Authorization: "Bearer " + token,
     };
-
-    const response = await postURL("user", body);
+    const response = await getURL("/auth/profile", headers);
+    if (response.status == 401) return false;
     const jsonres = await response.json();
-    setUser(jsonres._id);
-    return jsonres._id;
+    console.log(jsonres.sub);
+    if (jsonres.email) {
+      window.localStorage.setItem("token", token);
+      window.localStorage.setItem("user", jsonres.sub.split("|")[1]);
+      setUser(jsonres.sub.split("|")[1]);
+      navigate("/");
+    }
   };
 
   const signout = () => {
     setUser(false);
+    window.localStorage.removeItem("token");
+    window.localStorage.removeItem("user");
     navigate("/");
   };
 
@@ -68,8 +75,8 @@ function useProvideAuth() {
   return {
     user,
     sendotp,
+    getprofile,
     checkotp,
-    signup,
     signout,
   };
 }

@@ -12,6 +12,8 @@ import useStyles from "./materialui/styles";
 const Navbar = () => {
   const classes = useStyles();
   const auth = useAuth();
+  const user = window.localStorage.getItem("user");
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={styles.test}>
@@ -25,7 +27,7 @@ const Navbar = () => {
               </Link>
             </Grid>
             <Grid item>
-              {auth.user ? (
+              {user ? (
                 <Link to="/barshelf">
                   <Button type="button" variant="contained" color="secondary">
                     Bar Shelf
@@ -63,7 +65,7 @@ const Navbar = () => {
               </Link>
             </Grid>
           </Grid>
-          {auth.user ? (
+          {user ? (
             <Button
               type="button"
               variant="contained"

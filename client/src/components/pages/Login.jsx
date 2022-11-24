@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useAuth } from "../useAuth";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -13,6 +13,11 @@ export default function Login() {
   const auth = useAuth();
   const navigate = useNavigate();
   //When data is changed in the form, get the name and value of the change and append or update them onto the user state.
+  useEffect(() => {
+    if (auth.user) {
+      navigate("/");
+    }
+  }, []);
   function handleChange(event) {
     if (event.target.name == "email") setEmail(event.target.value);
     if (event.target.name == "otp") setotp(event.target.value);
@@ -52,7 +57,7 @@ export default function Login() {
               variant="contained"
               color="primary"
             >
-              Send otp
+              Check code
             </Button>
           </form>
         </Fragment>
@@ -70,7 +75,7 @@ export default function Login() {
             variant="contained"
             color="primary"
           >
-            Send otp
+            Send code
           </Button>
         </form>
       )}

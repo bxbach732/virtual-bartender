@@ -12,7 +12,7 @@ const IndividualRecipe = () => {
   useEffect(() => {
     console.log(id);
     const fetchRecipe = async () => {
-      const response = await getURL("recipe/" + id);
+      const response = await getURL("/recipe/" + id);
       const Recipe = await response.json();
       setRecipe(Recipe);
       console.log(Recipe.ingredient);
