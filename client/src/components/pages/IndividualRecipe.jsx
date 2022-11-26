@@ -21,29 +21,35 @@ const IndividualRecipe = () => {
     fetchRecipe();
   }, [id]);
 
-  function replaceWithBr(s) {
-    if (typeof s === "string") {
-      return s.replace(/\n/g, "<br />")
-    } else return s;
-
-  }
-
   return (
     <Box>
       <h1>{recipe.name}</h1>
       <h3>{recipe.description}</h3>
       <h3>Ingredients</h3>
-      {recipe.ingredient &&
-        recipe.ingredient.map((ingredient, index) => [
-          <ListItem key={index}>
-            <p key={index}>{ingredient}</p>
-          </ListItem>,
-        ])}
+      <div style={styles.ingreList}>
+        {
+          recipe.ingredient?.map((ingredient, index) =>
+              <div key={index} style={styles.ingre}>{ingredient}</div>)
+        }
+      </div>
+
       <h3>Instructions</h3>
-      <p dangerouslySetInnerHTML={{ __html: replaceWithBr() }} />
+      {
+        recipe.instruction?.replaceAll("/n", "\n")
+          .replaceAll("\\n", "\n")
+          .split("\n")
+          .map((line) => <p>{line}</p>)
+      }
     </Box>
   );
 };
 export default IndividualRecipe;
 
+const styles = {
+  ingre: {
 
+  },
+  ingreList: {
+
+  }
+}

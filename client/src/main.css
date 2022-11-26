@@ -81,4 +81,14 @@ code {
   background-color: #483725;
 }
 
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #e8dfd5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 /*# sourceMappingURL=main.css.map */

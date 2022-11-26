@@ -12,8 +12,10 @@ import theme from "./components/materialui/theme";
 import { ProvideAuth } from "./components/useAuth";
 import Login from "./components/pages/Login";
 import Contact from "./components/pages/Contact";
+import Footer from './components/pages/Footer';
 
 function App() {
+
   return (
     <ProvideAuth>
       <ThemeProvider theme={theme}>
@@ -27,8 +29,10 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/footer" element={<Footer />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
+          <Footer />
         </div>
       </ThemeProvider>
     </ProvideAuth>

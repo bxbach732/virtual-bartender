@@ -62,10 +62,10 @@ const BarShelf = () => {
   }
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={5}>
+    <div>
+      <div>
         <h1>Ingredients</h1>
-        <Grid item id="ingredients">
+        <div item id="ingredients">
           {Object.keys(ingredients).map(function (key, index) {
             return (
               <ul key={index}>
@@ -93,10 +93,10 @@ const BarShelf = () => {
               </ul>
             );
           })}
-        </Grid>
-      </Grid>
-      <Grid item xs={2}>
-        <Grid item>
+        </div>
+      </div>
+      <div>
+        <div>
           <h2>Available recipes</h2>
           <h3>Alcoholic</h3>
           {possibleRecipes &&
@@ -116,14 +116,15 @@ const BarShelf = () => {
                 </Link>
               </ListItem>,
             ])}
-        </Grid>
-      </Grid>
-      <Grid item xs={3}>
-        <Grid item>
+        </div>
+      </div>
+      <div>
+        <div>
           <h2>Impossible recipes</h2>
           <h3>Alcoholic</h3>
           {impossibleRecipes &&
             impossibleRecipes.Alcoholic.map((recipe) => [
+              
               <ListItem key={recipe.id}>
                 <Link to={"/recipes/" + recipe.id}>
                   <ListItemText
@@ -147,9 +148,9 @@ const BarShelf = () => {
                 </Link>
               </ListItem>,
             ])}
-        </Grid>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+    </div>
   );
 };
 
