@@ -26,45 +26,45 @@ const RecipeList = () => {
   return (
     <div>
       <h1>Recipes</h1>
-      <Box	
-        display="flex"	
-        flexWrap="wrap"	
-        alignItems="center"	
-        className={classes.recipesContainer}>	
-        {	
-          !clickSeeMore ? recipes.filter((_, index) => index < 10).map(recipe => (	
-            <Box key={recipe._id} className={classes.recipe}>	
-              <Box className="img">	
-                <Link to={"/recipes/" + recipe._id}>	
-                  <img	
-                    src={recipe.thumbnail}	
-                    alt="No thumbnail :("	
-                    width="150"	
-                    height="150"	
-                  />	
-                </Link>	
-              </Box>	
-              <ListItemText	
-                primary={recipe.name}	
-              />	
-            </Box>	
-          )) : recipes.map(recipe => (	
-            <Box key={recipe._id} className={classes.recipe}>	
-              <Box className="img">	
-                <img	
-                  src={recipe.thumbnail}	
-                  alt="No thumbnail :("	
-                  width="100"	
-                  height="100"	
-                />	
-              </Box>	
-              <Link to={"/recipes/" + recipe._id}>	
-                <ListItemText	
-                  primary={recipe.name}	
-                />	
-              </Link>	
-            </Box>))	
-        }	
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        alignItems="center"
+        className={classes.recipesContainer}>
+        {
+          !clickSeeMore ? recipes.filter((_, index) => index < 10).map(recipe => (
+            <Box key={recipe._id} className={classes.recipe}>
+              <Box className="img">
+                <Link to={"/recipes/" + recipe._id}>
+                  <img
+                    src={recipe.thumbnail}
+                    alt="No thumbnail :("
+                    width="150"
+                    height="150"
+                  />
+                </Link>
+              </Box>
+              <ListItemText
+                primary={recipe.name}
+              />
+            </Box>
+          )) : recipes.map(recipe => (
+            <Box key={recipe._id} className={classes.recipe}>
+              <Box className="img">
+                <Link to={"/recipes/" + recipe._id}>
+                  <img
+                    src={recipe.thumbnail}
+                    alt="No thumbnail :("
+                    width="100"
+                    height="100"
+                  />
+                </Link>
+              </Box>
+              <ListItemText
+                primary={recipe.name}
+              />
+            </Box>))
+        }
       </Box>
 
       <Box className={classes.seeMoreButton}>
