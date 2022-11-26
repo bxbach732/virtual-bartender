@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import { getURL } from "../tools";
+import { f, getURL } from "../tools";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 const IndividualRecipe = () => {
@@ -19,7 +19,15 @@ const IndividualRecipe = () => {
     };
 
     fetchRecipe();
-  }, []);
+  }, [id]);
+
+  function replaceWithBr(s) {
+    if (typeof s === "string") {
+      return s.replace(/\n/g, "<br />")
+    } else return s;
+
+  }
+
   return (
     <Box>
       <h1>{recipe.name}</h1>
@@ -32,8 +40,10 @@ const IndividualRecipe = () => {
           </ListItem>,
         ])}
       <h3>Instructions</h3>
-      <p>{recipe.instruction}</p>
+      <p dangerouslySetInnerHTML={{ __html: replaceWithBr() }} />
     </Box>
   );
 };
 export default IndividualRecipe;
+
+

@@ -22,4 +22,12 @@ async function putURL(path) {
   });
   return response;
 }
+
+export function f(s){
+  if(typeof s === "string"){
+    return s.replaceAll("\n", "<br/>").replaceAll("/n", "<br/>"); 
+  }
+  return s;
+}
+
 export { getURL, postURL, putURL };

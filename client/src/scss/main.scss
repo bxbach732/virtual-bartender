@@ -1,11 +1,24 @@
 @import "config";
+@font-face {
+  font-family: "Light";   /*Can be any text*/
+  src: local("NeueMachinaLight"),
+    url("../fonts/NeueMachinaLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Regular";   /*Can be any text*/
+  src: local("NeueMachinaRegular"),
+    url("../fonts/NeueMachinaRegular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UltraBold";   /*Can be any text*/
+  src: local("NeueMachinaUltrabold"),
+    url("../fonts/NeueMachinaUltrabold.ttf") format("truetype");
+}
 
 body {
   background-color: #e8e0d5;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Regular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
