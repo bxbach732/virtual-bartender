@@ -46,7 +46,7 @@ export default function Login() {
           <span>Input the one time code sent to your email</span>
           <form id="login-form" onSubmit={handleSubmit}>
             <label>
-              <TextField label="otp" name="otp" onChange={handleChange} />
+              <TextField label="Code" name="otp" onChange={handleChange} />
             </label>
             <br />
 
@@ -60,6 +60,13 @@ export default function Login() {
               Check code
             </Button>
           </form>
+          <Button
+            onClick={setotpSent(false)}
+            variant="contained"
+            color="primary"
+          >
+            Go back
+          </Button>
         </Fragment>
       ) : (
         <form id="login-form" onSubmit={handleSubmit}>

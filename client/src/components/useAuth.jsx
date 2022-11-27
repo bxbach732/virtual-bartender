@@ -1,5 +1,5 @@
 //Auth hook from: https://usehooks.com/useAuth/
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { getURL, postURL } from "./tools";
 

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { getURL, postURL, putURL } from "../tools";
-import { useAuth } from "../useAuth";
+import { getURL, putURL } from "../tools";
 import { useNavigate } from "react-router-dom";
 import { Link } from "@mui/material";
 
@@ -19,9 +17,7 @@ const BarShelf = () => {
 
   useEffect(() => {
     const user = window.localStorage.getItem("user");
-    if (!user) {
-      navigate("/login");
-    }
+    if (!user) navigate("/login");
     const fetchBarshelf = async () => {
       const idResponse = await getURL("/user/" + user + "/shelf");
       const Shelf = await idResponse.json();
@@ -56,6 +52,7 @@ const BarShelf = () => {
   }
 
   async function fetchPossibleRecipes() {
+    if (shelf._id == "") navigate("/login");
     const response = await getURL("/shelf/" + shelf._id + "/possible-recipe");
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
@@ -125,7 +122,6 @@ const BarShelf = () => {
           <h3>Alcoholic</h3>
           {impossibleRecipes &&
             impossibleRecipes.Alcoholic.map((recipe) => [
-              
               <ListItem key={recipe.id}>
                 <Link to={"/recipes/" + recipe.id}>
                   <ListItemText
