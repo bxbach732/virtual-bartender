@@ -1,3 +1,4 @@
+const fetch = require("node-fetch")
 const { userModel } = require("../models/userModel")
 
 async function initiatePasswordless (req, res) {
@@ -23,6 +24,7 @@ async function initiatePasswordless (req, res) {
     res.send(data);
 
   } catch (error) {
+    console.log(error)
     res.status(500).send(error);
   };
 }

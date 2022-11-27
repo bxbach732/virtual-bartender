@@ -6,6 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { getURL, postURL, putURL } from "../tools";
 import { useAuth } from "../useAuth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "@mui/material";
 
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
