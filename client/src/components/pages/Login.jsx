@@ -60,8 +60,13 @@ export default function Login() {
               Check code
             </Button>
           </form>
+          <br />
+
+          <br />
           <Button
-            onClick={setotpSent(false)}
+            onClick={() => {
+              setotpSent(false);
+            }}
             variant="contained"
             color="primary"
           >
