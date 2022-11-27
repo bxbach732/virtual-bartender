@@ -24,10 +24,10 @@ async function listUser (req, res) {
 async function createUser (req, res) {
     try {
         const newUser = new userModel(req.body);
-        const userID = newUser._id;
+        const userID = newUser.authID;
         const data = await newUser.save();
 
-        const createdShelf = await fetch("http://localhost:7777/shelf", {
+        const createdShelf = await fetch("https://virtual-bartender-app.herokuapp.com/shelf", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -74,16 +74,8 @@ async function getShelf (req, res) {
 
 async function getUserID (req, res) { //get userid from phone or email
     try {
-        // if (req.params.email !== "") {
-        //     const data = await userModel.findOne({ 'email': req.params.email }).exec();
-        // } else if (req.params.phone !== "") {
-        //     const data = await userModel.findOne({ 'phone': req.params.phone }).exec();
-        // }
-        const data = await userModel.find({
-            "email": req.query.email,
-            "phone": req.query.phone
-        }).exec();
-        res.send(data[0]._id); 
+        const data = await userModel.find({ "email": req.query.email }).exec();
+        res.send(data[0].authID); 
     } catch (error) {
         res.status(500).send(error);
     }

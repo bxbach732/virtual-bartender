@@ -12,34 +12,31 @@ import useStyles from "./materialui/styles";
 const Navbar = () => {
   const classes = useStyles();
   const auth = useAuth();
+  const user = window.localStorage.getItem("user");
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={styles.test}>
         <Toolbar>
-          <Grid container spacing={3} className={classes.example}>
+          <Grid container spacing={3} className={classes.gridContainer}>
             <Grid item>
               <Link to="/">
-                <Button type="button" variant="contained" color="secondary">
+                <Button type="button" variant="contained" color="secondary" className="link-item" >
                   Home
                 </Button>
               </Link>
             </Grid>
             <Grid item>
-              {auth.user ? (
+              {user ? (
                 <Link to="/barshelf">
-                  <Button type="button" variant="contained" color="secondary">
+                  <Button type="button" variant="contained" color="secondary" className="link-item" >
                     Bar Shelf
                   </Button>
                 </Link>
               ) : (
                 <div>
-                  <Link to="/signup">
-                    <Button type="button" variant="contained" color="secondary">
-                      Sign up
-                    </Button>
-                  </Link>
                   <Link to="/login">
-                    <Button type="button" variant="contained" color="secondary">
+                    <Button type="button" variant="contained" color="secondary" className="link-item" >
                       Log in
                     </Button>
                   </Link>
@@ -48,20 +45,27 @@ const Navbar = () => {
             </Grid>
             <Grid item>
               <Link to="/recipes">
-                <Button type="button" variant="contained" color="secondary">
+                <Button type="button" variant="contained" color="secondary" className="link-item" >
                   Recipe List
                 </Button>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/about">
-                <Button type="button" variant="contained" color="secondary">
+                <Button type="button" variant="contained" color="secondary" className="link-item" >
                   About
                 </Button>
               </Link>
             </Grid>
+            <Grid item>
+              <Link to="/contact">
+                <Button type="button" variant="contained" color="secondary" className="link-item" >
+                  Contact
+                </Button>
+              </Link>
+            </Grid>
           </Grid>
-          {auth.user ? (
+          {user ? (
             <Button
               type="button"
               variant="contained"

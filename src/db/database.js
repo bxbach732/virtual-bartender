@@ -4,17 +4,11 @@ const mongoose = require("mongoose");
 const uri = process.env.MONGODB_URI;
 
 try {
-    mongoose.connect(uri, {
+    mongoose.connect(process.env.MONGO_ATLAS_URI, {
         useNewUrlParser: true, 
-        useUnifiedTopology: true,
-        auth: {
-            "username": process.env.MONGO_INITDB_ROOT_USERNAME,
-            "password": process.env.MONGO_INITDB_ROOT_PASSWORD
-        },
-        authSource: "admin",
-        authMechanism: "DEFAULT"
+        useUnifiedTopology: true
     });
-    console.log('Database connected ...');
+    console.log('Database connected...');
 } catch (err) {    
     console.error('Can not establish connection ...');
 }

@@ -23,37 +23,60 @@ function useProvideAuth() {
   const navigate = useNavigate();
 
   //Save the user to state.
-  const signin = async (email, phone) => {
-    const query = "?email=" + email + "&phone=" + phone;
-    const response = await getURL("user/id" + query);
+  const sendotp = async (email) => {
+    const body = {
+      email: email,
+    };
+    const response = await postURL("/auth/login", body);
     const jsonres = await response.json();
-    setUser(jsonres);
+    console.log(jsonres);
     return jsonres;
   };
 
-  //Save the user to state
-  const signup = async (email, phone) => {
+  const checkotp = async (email, otp) => {
     const body = {
       email: email,
-      phone: phone,
-      isAdmin: false,
+      otp: otp,
     };
-    const response = await postURL("user", body);
+    const response = await postURL("/auth/authenticate", body);
     const jsonres = await response.json();
-    setUser(jsonres._id);
-    return jsonres._id;
+    if (jsonres.access_token) {
+      const profile = await getprofile(jsonres.access_token);
+      return jsonres;
+    } else {
+      return false;
+    }
+  };
+
+  const getprofile = async (token) => {
+    const headers = {
+      Authorization: "Bearer " + token,
+    };
+    const response = await getURL("/auth/profile", headers);
+    if (response.status == 401) return false;
+    const jsonres = await response.json();
+    console.log(jsonres.sub);
+    if (jsonres.email) {
+      window.localStorage.setItem("token", token);
+      window.localStorage.setItem("user", jsonres.sub.split("|")[1]);
+      setUser(jsonres.sub.split("|")[1]);
+      navigate("/");
+    }
   };
 
   const signout = () => {
     setUser(false);
+    window.localStorage.removeItem("token");
+    window.localStorage.removeItem("user");
     navigate("/");
   };
 
   // Return the user object and auth methods
   return {
     user,
-    signin,
-    signup,
+    sendotp,
+    getprofile,
+    checkotp,
     signout,
   };
 }
