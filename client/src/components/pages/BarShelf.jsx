@@ -52,7 +52,6 @@ const BarShelf = () => {
   }
 
   async function fetchPossibleRecipes() {
-    if (shelf._id == "") navigate("/login");
     const response = await getURL("/shelf/" + shelf._id + "/possible-recipe");
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
