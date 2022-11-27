@@ -12,7 +12,7 @@ import useStyles from "../materialui/styles";
 const RecipeList = () => {
   const classes = useStyles();
   const [recipes, setRecipes] = useState([]);
-  const [clickSeeMore, setClickSeeMore] = useState(false)
+  const [showMore, setShowMore] = useState(false)
 
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const RecipeList = () => {
         alignItems="center"
         className={classes.recipesContainer}>
         {
-          !clickSeeMore ? recipes.filter((_, index) => index < 10).map(recipe => (
+          !showMore ? recipes.filter((_, index) => index < 10).map(recipe => (
             <Box key={recipe._id} className={classes.recipe}>
               <Box className="img">
                 <Link to={"/recipes/" + recipe._id}>
@@ -55,8 +55,8 @@ const RecipeList = () => {
                   <img
                     src={recipe.thumbnail}
                     alt="No thumbnail :("
-                    width="100"
-                    height="100"
+                    width="150"
+                    height="150"
                   />
                 </Link>
               </Box>
@@ -66,13 +66,12 @@ const RecipeList = () => {
             </Box>))
         }
       </Box>
-
-      <Box className={classes.seeMoreButton}>
+      <Box className={classes.showButton}>
         <Button
-          onClick={() => setClickSeeMore(!clickSeeMore)}
+          onClick={() => setShowMore(!showMore)}
           variant="contained"
           color="secondary">
-          {!clickSeeMore ? "See More" : "See Less"}
+          {!showMore ? "See More" : "See Less"}
         </Button>
       </Box>
     </div>

@@ -102,7 +102,7 @@ async function findPossibleRecipes (req, res) {
         console.log(ingredientNameFromShelf);
         
         const allRecipesData = await recipeModel.find().exec();
-        const possibleALcoholicRecipes = [];
+        const possibleAlcoholicRecipes = [];
         const possiblNonALcoholicRecipes = [];
         const impossibleAlcoholicRecipes = [];
         const impossibleNonAlcoholicRecipes = [];
@@ -110,7 +110,7 @@ async function findPossibleRecipes (req, res) {
         for (const recipeEntry of allRecipesData) {
             if (recipeEntry.ingredient.every(ingredient => ingredientNameFromShelf.includes(ingredient))) {
                 if (recipeEntry.isAlcoholic) {
-                    possibleALcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
+                    possibleAlcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
                 } else {
                     possiblNonALcoholicRecipes.push({ name: recipeEntry.name, id: recipeEntry._id });
                 }
@@ -135,7 +135,7 @@ async function findPossibleRecipes (req, res) {
 
         res.json({ 
                     "Possible recipes": {
-                        "Alcoholic": possibleALcoholicRecipes, 
+                        "Alcoholic": possibleAlcoholicRecipes, 
                         "Non-Alcoholic": possiblNonALcoholicRecipes
                     }, 
                     "Impossible recipes" : {
