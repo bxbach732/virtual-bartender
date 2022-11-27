@@ -68,7 +68,7 @@ const styles = {
   aboutImg: {
     margin: '5rem auto',
     display: 'flex',
-    columnGap: '160px',
+    columnGap: '120px',
     justifyContent: 'center'
   },
 }

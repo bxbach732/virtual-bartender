@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import { getURL, putURL } from "../tools";
 import { useNavigate } from "react-router-dom";
-import { Link } from "@mui/material";
+import { IngredientList } from "./components/IngredientList";
+import { RecipeList } from "./components/RecipeList";
+import { useCallback } from "react";
 
 const BarShelf = () => {
   const [ingredients, setIngredients] = useState([]);
   const [shelf, setShelf] = useState({ _id: "", content: [] });
-
   const [possibleRecipes, setPossibleRecipes] = useState();
   const [impossibleRecipes, setImpossibleRecipes] = useState();
-
   const navigate = useNavigate();
+
+  const fetchPossibleRecipes = useCallback(async () => {
+    const response = await getURL("/shelf/" + shelf._id + "/possible-recipe");
+    const PossibleRecipes = await response.json();
+    setPossibleRecipes(PossibleRecipes["Possible recipes"]);
+    setImpossibleRecipes(PossibleRecipes["Impossible recipes"]);
+  }, [shelf])
 
   useEffect(() => {
     const user = window.localStorage.getItem("user");
@@ -33,10 +37,10 @@ const BarShelf = () => {
       setIngredients(ingredientTypes);
     };
     fetchBarshelf();
-  }, []);
+  }, [navigate]);
   useEffect(() => {
     fetchPossibleRecipes();
-  }, [shelf]);
+  }, [shelf, fetchPossibleRecipes]);
 
   async function ingredientOnclick(id) {
     let shelfData = {};
@@ -51,99 +55,17 @@ const BarShelf = () => {
     fetchPossibleRecipes();
   }
 
-  async function fetchPossibleRecipes() {
-    const response = await getURL("/shelf/" + shelf._id + "/possible-recipe");
-    const PossibleRecipes = await response.json();
-    setPossibleRecipes(PossibleRecipes["Possible recipes"]);
-    setImpossibleRecipes(PossibleRecipes["Impossible recipes"]);
-  }
-
   return (
     <div>
-      <div>
-        <h1>Ingredients</h1>
-        <div item id="ingredients">
-          {Object.keys(ingredients).map(function (key, index) {
-            return (
-              <ul key={index}>
-                <h3>{key}</h3>
-                {ingredients[key].map((ingredient) => {
-                  return (
-                    <ListItem key={ingredient._id}>
-                      <Button
-                        onClick={() => {
-                          ingredientOnclick(ingredient._id);
-                        }}
-                        style={
-                          shelf.content.includes(ingredient._id)
-                            ? { color: "white", backgroundColor: "#493725" }
-                            : { borderColor: "black" }
-                        }
-                        color="secondary"
-                        variant="outlined"
-                      >
-                        {ingredient.name}
-                      </Button>
-                    </ListItem>
-                  );
-                })}
-              </ul>
-            );
-          })}
-        </div>
+      <div style={styles.barShelfHeader}>
+        Have you found your favourite yet?
       </div>
-      <div>
-        <div>
-          <h2>Available recipes</h2>
-          <h3>Alcoholic</h3>
-          {possibleRecipes &&
-            possibleRecipes.Alcoholic.map((recipe) => [
-              <ListItem key={recipe.id}>
-                <Link to={"/recipes/" + recipe.id}>
-                  <ListItemText key={recipe.id} primary={recipe.name} />
-                </Link>
-              </ListItem>,
-            ])}
-          <h3>Non-Alcoholic</h3>
-          {possibleRecipes &&
-            possibleRecipes["Non-Alcoholic"].map((recipe) => [
-              <ListItem key={recipe.id}>
-                <Link to={"/recipes/" + recipe.id}>
-                  <ListItemText key={recipe.id} primary={recipe.name} />
-                </Link>
-              </ListItem>,
-            ])}
-        </div>
-      </div>
-      <div>
-        <div>
-          <h2>Impossible recipes</h2>
-          <h3>Alcoholic</h3>
-          {impossibleRecipes &&
-            impossibleRecipes.Alcoholic.map((recipe) => [
-              <ListItem key={recipe.id}>
-                <Link to={"/recipes/" + recipe.id}>
-                  <ListItemText
-                    key={recipe.id}
-                    primary={recipe.name}
-                    secondary={recipe.missing.map((item) => item).join(", ")}
-                  />
-                </Link>
-              </ListItem>,
-            ])}
-          <h3>Non-Alcoholic</h3>
-          {impossibleRecipes &&
-            impossibleRecipes["Non-Alcoholic"].map((recipe) => [
-              <ListItem key={recipe.id}>
-                <Link to={"/recipes/" + recipe.id}>
-                  <ListItemText
-                    key={recipe.id}
-                    primary={recipe.name}
-                    secondary={recipe.missing.map((item) => item).join(", ")}
-                  />
-                </Link>
-              </ListItem>,
-            ])}
+      <div style={styles.box}>
+        <IngredientList ingredients={ingredients} shelf={shelf} ingredientOnclick={ingredientOnclick} />
+
+        <div style={styles.barShelfRecipeList}>
+          <RecipeList text1={"AVAILABLE RECIPES"} text2={"with your ingredients"} recipes={possibleRecipes} />
+          <RecipeList text1={"CANNOT MAKE"} text2={":("} recipes={impossibleRecipes} />
         </div>
       </div>
     </div>
@@ -151,3 +73,20 @@ const BarShelf = () => {
 };
 
 export default BarShelf;
+const styles = {
+  barShelfHeader: {
+    fontSize: '3rem',
+    margin: '3rem auto 3rem',
+  },
+  box: {
+    display: 'flex',
+    justifyContent: 'center',
+    columnGap: '100px',
+    marginBottom: '100px'
+  },
+  barShelfRecipeList: {
+    display: 'flex',
+    justifyContent: 'center',
+    columnGap: '50px',
+  },
+}
