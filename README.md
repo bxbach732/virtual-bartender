@@ -2,6 +2,8 @@
 
 Virtual bartender is an application where you can add ingredients to your shelf, and the page shows what recipes you can create. You can also view all of the recipes individually in a list. The website uses passwordless login done with oauth.
 
+The website runs in: https://virtual-bartender1.herokuapp.com/#/
+
 # Technology choices
 
 Virtual bartender is a MERN stack application done for the course Design of WWW Services at Aalto University.
