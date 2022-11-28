@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// render Recipe list of Barshelf page
 export const RecipeList = ({ text1, text2, recipes }) => {
   const [showMore, setShowMore] = useState(false);
 

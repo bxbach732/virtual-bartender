@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { getURL } from "../tools";
 import { useParams } from "react-router-dom";
 
+// render the individual instruction page for each drink (https://virtual-bartender1.herokuapp.com/#/recipes/{id})
 const IndividualRecipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
 
   useEffect(() => {
-    //Fetch the recipe and its ingredients and instructions
+    // fetch the recipe and its ingredients and instructions
     const fetchRecipe = async () => {
       const response = await getURL("/recipe/" + id);
       const Recipe = await response.json();
@@ -26,10 +27,11 @@ const IndividualRecipe = () => {
           <img style={styles.img}
             src={recipe.thumbnail}
             alt="No thumbnail :("
-            width="250"
-            height="250"
+            width="300"
+            height="300"
           />
-          <div>{recipe.description}</div>
+          &nbsp;
+          <div style={styles.description}>{recipe.description}</div>
         </div>
         <div style={styles.bodyContent2}>
           <div style={styles.ingredientText}>
@@ -88,6 +90,9 @@ const styles = {
   bodyContent1: {
     width: '350px',
     textAlign: 'center',
+  },
+  description: {
+    margin: '0.5rem 0 1rem'
   },
   bodyContent2: {
     marginBottom: '4rem'

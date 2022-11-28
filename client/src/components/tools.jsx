@@ -1,6 +1,4 @@
-import React from "react";
-
-//Use different url for development and deployment
+// use different url for development and deployment
 const baseUrl =
   window.location.hostname === "localhost" ? "http://localhost:7777" : "";
 
@@ -13,7 +11,7 @@ async function getURL(path, headers) {
   return response;
 }
 
-//post to a url with items as body
+// post to a url with items as body
 async function postURL(path, items) {
   const response = await fetch(baseUrl + path, {
     method: "POST",
@@ -22,7 +20,7 @@ async function postURL(path, items) {
   });
   return response;
 }
-//Put to a url
+// put to a url
 async function putURL(path) {
   const response = await fetch(baseUrl + path, {
     method: "PUT",
@@ -30,7 +28,7 @@ async function putURL(path) {
   return response;
 }
 
-//Change \n to /n, used in rendering instructions
+// change \n to /n, used in rendering instructions
 export function f(s) {
   if (typeof s === "string") {
     return s.replaceAll("\n", "<br/>").replaceAll("/n", "<br/>");

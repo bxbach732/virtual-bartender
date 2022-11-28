@@ -1,5 +1,6 @@
 import React from "react";
 
+// render Contact page (https://virtual-bartender1.herokuapp.com/#/contact)
 const Contact = () => {
   return (
     <div style={styles.container}>

@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 
+// render Ingredient list of Barshelf page
 export const IngredientList = ({ ingredients, shelf, ingredientOnclick, }) => {
   const [showMore, setShowMore] = useState(false);
 
@@ -20,7 +21,9 @@ export const IngredientList = ({ ingredients, shelf, ingredientOnclick, }) => {
       </div>
     </div>
     <div>
-      {Object.keys(ingredients).filter((_, i) => showMore || i < 3).map(function (key, index) {
+      {
+      // render 3 first types of ingredients if show less, render all if show more
+      Object.keys(ingredients).filter((_, i) => showMore || i < 3).map(function (key, index) {
         return (
           <ul key={index}>
             <h3>{key}</h3>
