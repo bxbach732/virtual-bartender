@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const uri = process.env.MONGODB_URI;
 
 try {
-    mongoose.connect(process.env.MONGO_ATLAS_URI, {
+    mongoose.connect(process.env.MONGO_ATLAS_URI, { //Connect to the online mongo atlas cluster
         useNewUrlParser: true, 
         useUnifiedTopology: true
     });

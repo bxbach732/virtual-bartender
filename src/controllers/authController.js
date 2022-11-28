@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const { userModel } = require("../models/userModel");
 
-async function initiatePasswordless(req, res) {
+async function initiatePasswordless(req, res) { //Call the passwordless initiating API to get the OTP code
   try {
     const response = await fetch(
       `${process.env.ISSUER_BASE_URL}/passwordless/start`,
@@ -31,7 +31,7 @@ async function initiatePasswordless(req, res) {
   }
 }
 
-async function authenticate(req, res) {
+async function authenticate(req, res) { //Authenticate using the sent OTP code
   try {
     const response = await fetch(`${process.env.ISSUER_BASE_URL}/oauth/token`, {
       method: "POST",
@@ -97,7 +97,7 @@ async function authenticate(req, res) {
   }
 }
 
-async function getProfile(req, res) {
+async function getProfile(req, res) { //Get user profile 
   try {
     const response = await fetch(`${process.env.ISSUER_BASE_URL}/userinfo`, {
       method: "GET",

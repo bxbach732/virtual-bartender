@@ -1,6 +1,7 @@
 const { ingredientModel } = require("../models/ingredientModel")
 
-async function listAll (req, res) {
+//Basic CRUD APIs
+async function listAll (req, res) { //Get all the ingredients
     try {
         const data = await ingredientModel.find().exec();
         res.send(data);
@@ -9,7 +10,7 @@ async function listAll (req, res) {
     }
 }
 
-async function listIngredient (req, res) {
+async function listIngredient (req, res) { //Get an ingredient
     try {
         const data = await ingredientModel.findById(req.params.id).exec();
         res.send(data);
@@ -18,7 +19,7 @@ async function listIngredient (req, res) {
     }
 }
 
-async function createIngredient (req, res) {
+async function createIngredient (req, res) { //Create a new ingredient
     try {
         const newIngredient = new ingredientModel(req.body);
         const data = await newIngredient.save();
@@ -28,7 +29,7 @@ async function createIngredient (req, res) {
     }
 }
 
-async function updateIngredient (req, res) {
+async function updateIngredient (req, res) { //Update an ingredient
     try {   
         let ingredientData = await ingredientModel.findById(req.params.id).exec();
         ingredientData.set(req.body);
@@ -39,7 +40,7 @@ async function updateIngredient (req, res) {
     }
 }
 
-async function deleteIngredient (req, res) {
+async function deleteIngredient (req, res) { //Delete an ingredient
     try {
         const data = await ingredientModel.deleteOne({'_id': req.params.id}).exec();
         res.send(data);
@@ -48,7 +49,7 @@ async function deleteIngredient (req, res) {
     }
 }
 
-async function listIngredientDetail (ingredientID) {
+async function listIngredientDetail (ingredientID) { //Helper API to find ingredient detail
     try {   
         const data = await ingredientModel.findById(ingredientID).exec();
         return data;
