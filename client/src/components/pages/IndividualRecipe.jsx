@@ -26,10 +26,11 @@ const IndividualRecipe = () => {
           <img style={styles.img}
             src={recipe.thumbnail}
             alt="No thumbnail :("
-            width="250"
-            height="250"
+            width="300"
+            height="300"
           />
-          <div>{recipe.description}</div>
+          &nbsp;
+          <div style={styles.description}>{recipe.description}</div>
         </div>
         <div style={styles.bodyContent2}>
           <div style={styles.ingredientText}>
@@ -88,6 +89,9 @@ const styles = {
   bodyContent1: {
     width: '350px',
     textAlign: 'center',
+  },
+  description: {
+    margin: '0.5rem 0 1rem'
   },
   bodyContent2: {
     marginBottom: '4rem'
