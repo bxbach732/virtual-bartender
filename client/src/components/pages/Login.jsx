@@ -49,13 +49,12 @@ export default function Login() {
               <TextField label="Code" name="otp" onChange={handleChange} />
             </label>
             <br />
-
             <br />
             <Button
               type="submit"
               value="Submit"
               variant="contained"
-              color="primary"
+              color="secondary"
             >
               Check code
             </Button>
@@ -79,13 +78,12 @@ export default function Login() {
             <TextField label="email" name="email" onChange={handleChange} />
           </label>
           <br />
-
           <br />
           <Button
             type="submit"
             value="Submit"
             variant="contained"
-            color="primary"
+            color="secondary"
           >
             Send code
           </Button>

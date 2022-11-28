@@ -21,7 +21,7 @@ const RecipeList = () => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.header}>Greate Recipes You Should Know</div>
+      <div style={styles.header}>Great Recipes You Should Know</div>
       <Box
         display="flex"
         flexWrap="wrap"
@@ -86,6 +86,6 @@ const styles = {
   },
   header: {
     fontSize: '2rem',
-    margin: '2rem auto 2rem',
+    margin: '2rem auto 1rem',
   },
 }

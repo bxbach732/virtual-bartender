@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getURL, putURL } from "../tools";
 import { useNavigate } from "react-router-dom";
-import { IngredientList } from "./components/IngredientList";
-import { RecipeList } from "./components/RecipeList";
+import { IngredientList } from "../IngredientList";
+import { RecipeList } from "../RecipeList";
 import { useCallback } from "react";
 
 const BarShelf = () => {
@@ -68,17 +68,16 @@ const BarShelf = () => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.barShelfHeader}>
+      <div style={styles.header}>
         Have you found your favourite yet?
       </div>
-      <div style={styles.box}>
+      <div style={styles.body}>
         <IngredientList
           ingredients={ingredients}
           shelf={shelf}
           ingredientOnclick={ingredientOnclick}
         />
-
-        <div style={styles.barShelfRecipeList}>
+        <div style={styles.recipeList}>
           <RecipeList
             text1={"AVAILABLE RECIPES"}
             text2={"with your ingredients"}
@@ -104,19 +103,20 @@ const styles = {
     padding: '0 2rem',
     margin: '0 auto',
   },
-  barShelfHeader: {
+  header: {
     fontSize: '2rem',
     margin: '2rem auto 2rem',
   },
-  box: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: "100px",
-    marginBottom: "100px",
+  body: {
+    display: 'flex',
+    justifyContent: 'center',
+    columnGap: '100px',
+    marginBottom: '100px',
+    marginLeft: '30px',
   },
-  barShelfRecipeList: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: "50px",
+  recipeList: {
+    display: 'flex',
+    justifyContent: 'center',
+    columnGap: '50px',
   },
 };

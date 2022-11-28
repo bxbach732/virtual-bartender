@@ -4,9 +4,9 @@ import React, { useState } from "react";
 export const IngredientList = ({ ingredients, shelf, ingredientOnclick, }) => {
   const [showMore, setShowMore] = useState(false);
 
-  return <div style={styles.ingredientList}>
+  return <div style={styles.container}>
     <div style={styles.ingredientListContainer}>
-      <div style={styles.ingredientListHeader}>
+      <div style={styles.title}>
         YOUR BARSHELF<br></br>
         Add your ingredients here
       </div>
@@ -61,7 +61,7 @@ export const IngredientList = ({ ingredients, shelf, ingredientOnclick, }) => {
 }
 
 const styles = {
-  ingredientList: {
+  container: {
     width: '600px',
     border: 'black 8px solid',
     paddingRight: '20px',
@@ -75,8 +75,8 @@ const styles = {
     justifyContent: 'center',
     columnGap: '16px',
   },
-  ingredientListHeader: {
-    fontSize: '1.75rem',
+  title: {
+    fontSize: '1.5rem',
     fontFamily: 'Light',
     textAlign: 'center'
   },
@@ -86,7 +86,7 @@ const styles = {
     alignContent: 'center',
     flexWrap: 'wrap',
     columnGap: '16px',
-    rowGap: '16px'
+    rowGap: '16px',
   },
   ingredientButton: {
     borderRadius: '20px'
