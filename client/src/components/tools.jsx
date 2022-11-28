@@ -38,4 +38,4 @@ export function f(s) {
   return s;
 }
 
-export { getURL, postURL, putURL, f };
+export { getURL, postURL, putURL };
