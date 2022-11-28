@@ -1,5 +1,6 @@
 import React from "react";
 
+// render sticky footer in all pages
 const Footer = () => {
   const year = new Date().getFullYear();
   return (

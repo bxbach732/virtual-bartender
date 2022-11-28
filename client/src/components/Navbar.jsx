@@ -9,6 +9,7 @@ import styles from "../scss/main.scss";
 import { useAuth } from "./useAuth";
 import useStyles from "./materialui/styles";
 
+// render navbar in all pages
 const Navbar = () => {
   const classes = useStyles();
   const auth = useAuth();

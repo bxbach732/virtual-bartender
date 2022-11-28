@@ -4,38 +4,43 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
+// render Login page (https://virtual-bartender1.herokuapp.com/#/login)
 export default function Login() {
-  //User is set unto this state.
+  // user is set unto this state.
   const [email, setEmail] = useState(null);
   const [otp, setotp] = useState(null);
 
   const [otpSent, setotpSent] = useState(false);
   const auth = useAuth();
   const navigate = useNavigate();
-  //When data is changed in the form, get the name and value of the change and append or update them onto the user state.
+  
+  // when data is changed in the form, get the name and value of the change and append or update them onto the user state.
   useEffect(() => {
     if (auth.user) {
       navigate("/");
     }
-  }, []);
+  }, [navigate, auth.user]);
+
+  // handle when input value changes
   function handleChange(event) {
-    if (event.target.name == "email") setEmail(event.target.value);
-    if (event.target.name == "otp") setotp(event.target.value);
+    if (event.target.name === "email") setEmail(event.target.value);
+    if (event.target.name === "otp") setotp(event.target.value);
   }
-  //Login button is pressed.
+
+  // login button is pressed.
   async function handleSubmit(event) {
     event.preventDefault();
     if (otpSent) {
       const token = await auth.checkotp(email, otp);
       console.log(token);
     } else {
+      // check that all necessary fields are filled, if not, show an alert error
       if (!email) {
         alert("Write your email first!");
         return;
       }
-      const id = await auth.sendotp(email);
+      auth.sendotp(email);
       setotpSent(true);
-      //Check that all necessary fields are filled, if not, show an alert error.
     }
   }
   return (

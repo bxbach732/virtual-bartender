@@ -5,15 +5,23 @@ import { IngredientList } from "../IngredientList";
 import { RecipeList } from "../RecipeList";
 import { useCallback } from "react";
 
+// render Barshelf page (https://virtual-bartender1.herokuapp.com/#/barshelf)
 const BarShelf = () => {
+  // list of ingredients
   const [ingredients, setIngredients] = useState([]);
+
+  // user's shelf
   const [shelf, setShelf] = useState({ _id: "", content: [] });
+
+  // possible and impossible recipes
   const [possibleRecipes, setPossibleRecipes] = useState();
   const [impossibleRecipes, setImpossibleRecipes] = useState();
+
+  // use to navigate to other pages
   const navigate = useNavigate();
 
   const fetchPossibleRecipes = useCallback(async () => {
-    //Get possible recipes with the current shelf
+    // get possible recipes with the current shelf
     const response = await getURL("/shelf/" + shelf._id + "/possible-recipe");
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
@@ -21,19 +29,19 @@ const BarShelf = () => {
   }, [shelf]);
 
   useEffect(() => {
-    //Get the user from localstorage
+    // get the user from localstorage
     const user = window.localStorage.getItem("user");
-    //If no user, return to login
+    // if no user, return to login
     if (!user) navigate("/login");
     const fetchBarshelf = async () => {
-      //Fetch the shelf of the user
+      // fetch the shelf of the user
       const response = await getURL("/user/" + user + "/shelf");
       const Shelf = await response.json();
       setShelf(Shelf);
-      //Fetch the ingredients
+      // fetch the ingredients
       const ingredientResponse = await getURL("/ingredient");
       const Ingredients = await ingredientResponse.json();
-      //Sort the ingredients according to their types.
+      // sort the ingredients according to their types.
       const ingredientTypes = Ingredients.reduce((types, item) => {
         const type = types[item.type] || [];
         type.push(item);
@@ -45,24 +53,24 @@ const BarShelf = () => {
     fetchBarshelf();
   }, [navigate]);
 
-  //Every time the shelf updates, call fetchPossibleRecipes
+  // every time the shelf updates, call fetchPossibleRecipes
   useEffect(() => {
     fetchPossibleRecipes();
   }, [shelf, fetchPossibleRecipes]);
 
-  //Update the shelf on clicking any ingredient
+  // update the shelf on clicking any ingredient
   async function ingredientOnclick(id) {
     let shelfData = {};
-    //If it's already on the shelf, remove it
+    // if it's already on the shelf, remove it
     if (shelf.content.includes(id)) {
       const response = await putURL("/shelf/" + shelf._id + "/delete/" + id);
       shelfData = await response.json();
-      //If it isn't, add it
+      // if it isn't, add it
     } else {
       const response = await putURL("/shelf/" + shelf._id + "/add/" + id);
       shelfData = await response.json();
     }
-    //Update shelf
+    // update shelf
     setShelf(shelfData);
   }
 

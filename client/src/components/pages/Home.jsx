@@ -1,7 +1,7 @@
 import React from "react";
 
+// render Home page (https://virtual-bartender1.herokuapp.com/#/)
 const Home = () => {
-
   return (
     <div style={styles.container}>
       <div>

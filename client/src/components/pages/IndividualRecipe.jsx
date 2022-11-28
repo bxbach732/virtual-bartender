@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { getURL } from "../tools";
 import { useParams } from "react-router-dom";
 
+// render the individual instruction page for each drink (https://virtual-bartender1.herokuapp.com/#/recipes/{id})
 const IndividualRecipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
 
   useEffect(() => {
-    //Fetch the recipe and its ingredients and instructions
+    // fetch the recipe and its ingredients and instructions
     const fetchRecipe = async () => {
       const response = await getURL("/recipe/" + id);
       const Recipe = await response.json();
