@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
-import Divider from "@mui/material/Divider";
 import { Box, Button } from "@mui/material";
 import { getURL } from "../tools";
 import useStyles from "../materialui/styles";
@@ -11,9 +8,8 @@ import useStyles from "../materialui/styles";
 const RecipeList = () => {
   const classes = useStyles();
   const [recipes, setRecipes] = useState([]);
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false)
 
-  //Fetch the recipes
   useEffect(() => {
     const fetchRecipes = async () => {
       const response = await getURL("/recipe");
@@ -24,58 +20,72 @@ const RecipeList = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Recipes</h1>
+    <div style={styles.container}>
+      <div style={styles.header}>Greate Recipes You Should Know</div>
       <Box
         display="flex"
         flexWrap="wrap"
         alignItems="center"
-        className={classes.recipesContainer}
-      >
-        {!showMore
-          ? recipes
-              .filter((_, index) => index < 10)
-              .map((recipe) => (
-                <Box key={recipe._id} className={classes.recipe}>
-                  <Box className="img">
-                    <Link to={"/recipes/" + recipe._id}>
-                      <img
-                        src={recipe.thumbnail}
-                        alt="No thumbnail :("
-                        width="150"
-                        height="150"
-                      />
-                    </Link>
-                  </Box>
-                  <ListItemText primary={recipe.name} />
-                </Box>
-              ))
-          : recipes.map((recipe) => (
-              <Box key={recipe._id} className={classes.recipe}>
-                <Box className="img">
-                  <Link to={"/recipes/" + recipe._id}>
-                    <img
-                      src={recipe.thumbnail}
-                      alt="No thumbnail :("
-                      width="150"
-                      height="150"
-                    />
-                  </Link>
-                </Box>
-                <ListItemText primary={recipe.name} />
+        className={classes.recipesContainer}>
+        {
+          !showMore ? recipes.filter((_, index) => index < 12).map(recipe => (
+            <Box key={recipe._id} className={classes.recipe}>
+              <Box className="img">
+                <Link to={"/recipes/" + recipe._id}>
+                  <img
+                    src={recipe.thumbnail}
+                    alt="No thumbnail :("
+                    width="150"
+                    height="150"
+                  />
+                </Link>
               </Box>
-            ))}
+              <ListItemText
+                primary={recipe.name}
+              />
+            </Box>
+          )) : recipes.map(recipe => (
+            <Box key={recipe._id} className={classes.recipe}>
+              <Box className="img">
+                <Link to={"/recipes/" + recipe._id}>
+                  <img
+                    src={recipe.thumbnail}
+                    alt="No thumbnail :("
+                    width="150"
+                    height="150"
+                  />
+                </Link>
+              </Box>
+              <ListItemText
+                primary={recipe.name}
+              />
+            </Box>))
+        }
+        
       </Box>
-      <Box className={classes.showButton}>
-        <Button
-          onClick={() => setShowMore(!showMore)}
-          variant="contained"
-          color="secondary"
-        >
-          {!showMore ? "See More" : "See Less"}
-        </Button>
-      </Box>
+      <Box className={classes.showMoreButton}>
+          <Button
+            onClick={() => setShowMore(!showMore)}
+            variant="contained"
+            color="secondary">
+            {!showMore ? "Show More" : "Show Less"}
+          </Button>
+        </Box>
     </div>
   );
 };
+
 export default RecipeList;
+const styles = {
+  container: {
+    alignItem: 'center',
+    width: '1920px',
+    maxWidth: '95vw',
+    padding: '0 2rem',
+    margin: '0 auto',
+  },
+  header: {
+    fontSize: '2rem',
+    margin: '2rem auto 2rem',
+  },
+}

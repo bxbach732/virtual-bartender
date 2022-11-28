@@ -1,6 +1,4 @@
-import {
-  makeStyles
-} from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 
 //The styles for the app are done here	
 //Import and call the useStyles function to create a classes object, holding all of the css.	
@@ -8,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
   p: {
     fontSize: '1rem',
   },
-
   gridContainer: {
     //backgroundColor: "green",	
     justifyContent: "center",
@@ -17,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: '5rem !important'
     },
     '& .link-item': {
-      minWidth: '10rem'
+      minWidth: '7rem'
     }
   },
   recipesContainer: {
-    width: '60rem',
+    width: '70rem',
     margin: '0 auto 2rem',
-    border: '1px solid #333'
+    //border: '1px solid #333',
   },
   recipe: {
     padding: '1rem',
@@ -44,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
   },
   showMoreButton: {
     margin: '0 auto 2rem',
-    borderRadius: '20px'
+    borderRadius: '20px',
+    marginBottom: '10rem'
   },
 }));
 

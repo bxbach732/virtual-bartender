@@ -67,7 +67,7 @@ const BarShelf = () => {
   }
 
   return (
-    <div>
+    <div style={styles.container}>
       <div style={styles.barShelfHeader}>
         Have you found your favourite yet?
       </div>
@@ -97,9 +97,16 @@ const BarShelf = () => {
 
 export default BarShelf;
 const styles = {
+  container: {
+    alignItem: 'center',
+    width: '1920px',
+    maxWidth: '95vw',
+    padding: '0 2rem',
+    margin: '0 auto',
+  },
   barShelfHeader: {
-    fontSize: "3rem",
-    margin: "3rem auto 3rem",
+    fontSize: '2rem',
+    margin: '2rem auto 2rem',
   },
   box: {
     display: "flex",

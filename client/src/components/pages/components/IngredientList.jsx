@@ -43,7 +43,6 @@ export const IngredientList = ({ ingredients, shelf, ingredientOnclick, }) => {
                     >
                       {ingredient.name}
                     </Button>
-
                   </div>
                 );
               })}
