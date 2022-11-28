@@ -1,8 +1,10 @@
 const { recipeModel } = require("../models/recipeModel")
 const { shelfModel } = require("../models/shelfModel")
+const { ingredientModel } = require("../models/ingredientModel")
 const ingredientController = require("../controllers/ingredientController");
 
-async function listAll (req, res) {
+//Basic CRUD APIs
+async function listAll (req, res) {  //Get all recipes
     try {
         const data = await recipeModel.find().exec();
         res.send(data);
@@ -11,7 +13,7 @@ async function listAll (req, res) {
     }
 }
 
-async function listRecipe (req, res) {
+async function listRecipe (req, res) { //Get a recipe
     try {
         const data = await recipeModel.findById(req.params.id).exec();
         res.send(data);
@@ -20,7 +22,7 @@ async function listRecipe (req, res) {
     }
 }
 
-async function createRecipe (req, res) {
+async function createRecipe (req, res) { //Create a new recipe
     try {
         const newRecipe = new recipeModel(req.body);
         const data = await newRecipe.save();
@@ -30,7 +32,7 @@ async function createRecipe (req, res) {
     }
 }
 
-async function updateRecipe (req, res) {
+async function updateRecipe (req, res) { //Update a recipe
     try {   
         let recipeData = await recipeModel.findById(req.params.id).exec();
         recipeData.set(req.body);
@@ -41,7 +43,7 @@ async function updateRecipe (req, res) {
     }
 }
 
-async function deleteRecipe (req, res) {
+async function deleteRecipe (req, res) { //Delete a recipe
     try {
         const data = await recipeModel.deleteOne({'_id': req.params.id}).exec();
         res.send(data);
@@ -50,7 +52,8 @@ async function deleteRecipe (req, res) {
     }
 }
 
-async function listRecipeStatus (req, res) {
+//Other APIs
+async function listRecipeStatus (req, res) { //List the current status of a recipe based on the barshelf content
     try {
         const recipeIngredient = (await recipeModel.findById(req.params.id).exec()).ingredient;
         const ingredientIDFromShelf = (await shelfModel.findById(req.params.sid).exec()).content;
@@ -63,9 +66,11 @@ async function listRecipeStatus (req, res) {
         
         for (const ingredient of recipeIngredient) {
             if (ingredientNameFromShelf.includes(ingredient)) {
-                availableIngredient.push(ingredient);
+                const ingredientID = (await ingredientModel.find({"name": ingredient}).exec())[0]._id;
+                availableIngredient.push({"id": ingredientID, "name":ingredient});
             } else {
-                unavailableIngredient.push(ingredient);
+                const ingredientID = (await ingredientModel.find({name: ingredient}).exec())[0]._id;
+                unavailableIngredient.push({"id": ingredientID, "name": ingredient});
             }
         }
         res.json({ 

@@ -2,7 +2,8 @@ const { userModel } = require("../models/userModel");
 const { shelfModel } = require("../models/shelfModel");
 const fetch = require("node-fetch");
 
-async function listAll(req, res) {
+//Basic CRUD APIs
+async function listAll(req, res) { //Get all users
   try {
     const data = await userModel.find().exec();
     res.send(data);
@@ -11,7 +12,7 @@ async function listAll(req, res) {
   }
 }
 
-async function listUser(req, res) {
+async function listUser(req, res) { //Get an user
   try {
     const data = await userModel.findById(req.params.id).exec();
     res.send(data);
@@ -20,7 +21,7 @@ async function listUser(req, res) {
   }
 }
 
-async function createUser(req, res) {
+async function createUser(req, res) { //Create a new user
   try {
     const newUser = new userModel(req.body);
     const userID = newUser.authID;
@@ -45,7 +46,7 @@ async function createUser(req, res) {
   }
 }
 
-async function updateUser(req, res) {
+async function updateUser(req, res) { //Update an user
   try {
     let userData = await userModel.findById(req.params.id).exec();
     userData.set(req.body);
@@ -56,7 +57,7 @@ async function updateUser(req, res) {
   }
 }
 
-async function deleteUser(req, res) {
+async function deleteUser(req, res) { //Delete an user
   try {
     const data = await userModel.deleteOne({ _id: req.params.id }).exec();
     res.send(data);
@@ -65,7 +66,7 @@ async function deleteUser(req, res) {
   }
 }
 
-async function getShelf(req, res) {
+async function getShelf(req, res) { //Get a shelf
   try {
     const data = await shelfModel.findOne({ userID: req.params.id }).exec();
     res.send(data);
@@ -74,7 +75,7 @@ async function getShelf(req, res) {
   }
 }
 
-async function getUserID(req, res) {
+async function getUserID(req, res) { //Get an user id
   //get userid from phone or email
   try {
     const data = await userModel.find({ email: req.query.email }).exec();

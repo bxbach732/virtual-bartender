@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
+//Create schema for the ingredient table
 const ingredientSchema = new Schema(
     {
         name: String,

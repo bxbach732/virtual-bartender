@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/hello", async (req, res) => {
+app.get("/hello", async (req, res) => { //Test API
   try {
     res.json({ message: "Hello world!" });
     console.log("GET /hello");
@@ -42,7 +42,7 @@ app.use("/auth", authRouter);
 //   app.use(express.static("client/build"));
 // }
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") { //Setting build for the deployment
   console.log("Starting on production");
   app.use(express.static(path.join(__dirname, "../client/build")));
   app.get("*", (req, res) =>

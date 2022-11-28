@@ -13,7 +13,8 @@ const sortHelper = (x, y) => {
     }
  }
 
-async function listAll (req, res) {
+//Basic CRUD APIs
+async function listAll (req, res) { //Get all the shelves
     try {
         const data = await shelfModel.find().exec();
         res.send(data);
@@ -22,7 +23,7 @@ async function listAll (req, res) {
     }
 }
 
-async function listShelf (req, res) {
+async function listShelf (req, res) { //Get a shelf
     try {
         const data = await shelfModel.findById(req.params.id).exec();
         res.send(data);
@@ -31,7 +32,7 @@ async function listShelf (req, res) {
     }
 }
 
-async function createShelf (req, res) {
+async function createShelf (req, res) { //Create a new shelf
     try {
         const newShelf = new shelfModel(req.body);
         const data = await newShelf.save();
@@ -41,7 +42,7 @@ async function createShelf (req, res) {
     }
 }
 
-async function updateShelf (req, res) {
+async function updateShelf (req, res) { //Update a shelf
     try {   
         let shelfData = await shelfModel.findById(req.params.id).exec();
         shelfData.set(req.body);
@@ -52,7 +53,7 @@ async function updateShelf (req, res) {
     }
 }
 
-async function deleteShelf (req, res) {
+async function deleteShelf (req, res) { //Delete a shelf
     try {
         const data = await shelfModel.deleteOne({'_id': req.params.id}).exec();
         res.send(data);
@@ -61,8 +62,8 @@ async function deleteShelf (req, res) {
     }
 }
 
-////////////////////////
-async function addIngredient (req, res) {
+//Other APIs
+async function addIngredient (req, res) { //Add an ingredient to a shelf
     try {   
         const newIngredientID = req.params.iid;
         let shelfData = await shelfModel.findById(req.params.id).exec();
@@ -74,7 +75,7 @@ async function addIngredient (req, res) {
     }
 }
 
-async function deleteIngredient (req, res) {
+async function deleteIngredient (req, res) { //Delete an ingredient from a shelf
     try {   
         const newIngredientID = req.params.iid;
         let shelfData = await shelfModel.findById(req.params.id).exec();
@@ -91,7 +92,7 @@ async function deleteIngredient (req, res) {
     }
 }
 
-async function findPossibleRecipes (req, res) {
+async function findPossibleRecipes (req, res) { //Find possible recipes based on the current content of the shelf
     try {   
         const ingredientIDFromShelf = (await shelfModel.findById(req.params.id).exec()).content;
         let ingredientNameFromShelf = [];

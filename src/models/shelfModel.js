@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
+//Create schema for the shelf table
 const shelfSchema = new Schema(
     {
         userID: Schema.Types.ObjectId,
