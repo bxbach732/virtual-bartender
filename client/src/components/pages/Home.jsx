@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
 
   return (
-    <div>
+    <div style={styles.container}>
       <div>
         <div style={styles.homeHeader1}>Virtual Bartender</div>
         <div style={styles.homeHeader2}>MAKE YOURSELF A BARTENDER</div>
@@ -40,18 +40,25 @@ const Home = () => {
 export default Home;
 
 const styles = {
+  container: {
+    alignItem: 'center',
+    width: '1920px',
+    maxWidth: '95vw',
+    padding: '0 2rem',
+    margin: '0 auto',
+  },
   homeHeader1: {
-    fontSize: '3rem',
-    margin: '3rem auto 3rem',
+    fontSize: '2rem',
+    margin: '2rem auto 2rem',
     //fontFamily: 'UltraBold',
   },
   homeHeader2: {
-    fontSize: '2rem',
-    margin: '3rem auto 3rem',
+    fontSize: '1.75rem',
+    margin: '2rem auto 2rem',
   },
   homeBody: {
     display: 'flex',
-    margin: '0 18rem 3rem',
+    margin: '0 16rem 3rem',
     justifyContent: 'center'
   },
   homeImg: {

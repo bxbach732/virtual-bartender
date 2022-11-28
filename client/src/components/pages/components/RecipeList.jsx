@@ -40,7 +40,6 @@ export const RecipeList = ({ text1, text2, recipes }) => {
 const styles = {
   recipeList: {
     width: '250px',
-    //border: 'black 8px solid',
     background: '#c8baa8',
     paddingRight: '20px',
     textAlign: 'center',

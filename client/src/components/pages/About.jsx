@@ -20,8 +20,8 @@ const About = () => {
           <img
             src="/images/About-1.jpg"
             alt="About-1"
-            width="250"
-            height="250"
+            width="200"
+            height="200"
           />
           <p>COCKTAILS AND OTHER RECIPES</p>
         </div>
@@ -29,8 +29,8 @@ const About = () => {
           <img
             src="/images/About-2.jpg"
             alt="About-2"
-            width="250"
-            height="250"
+            width="200"
+            height="200"
           />
           <p>BLENDING YOUR SPIRIT WITH OURS</p>
         </div>
@@ -38,8 +38,8 @@ const About = () => {
           <img
             src="/images/About-3.jpg"
             alt="About-3"
-            width="250"
-            height="250"
+            width="200"
+            height="200"
           />
           <p>ALCOHOLIC AND NON-ALCOHOLIC DRINKS</p>
         </div>
@@ -53,10 +53,14 @@ export default About;
 const styles = {
   container: {
     alignItem: 'center',
+    width: '1920px',
+    maxWidth: '95vw',
+    padding: '0 2rem',
+    margin: '0 auto',
   },
   aboutHeader: {
-    fontSize: '3rem',
-    margin: '3rem auto 3rem',
+    fontSize: '2rem',
+    margin: '2rem auto 2rem',
   },
   aboutBody: {
     margin: 'auto',
@@ -66,7 +70,7 @@ const styles = {
 
   },
   aboutImg: {
-    margin: '5rem auto',
+    margin: '2rem auto',
     display: 'flex',
     columnGap: '120px',
     justifyContent: 'center'

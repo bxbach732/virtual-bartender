@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getURL } from "../tools";
 import { useParams } from "react-router-dom";
-import { Box } from "@mui/material";
 
 const IndividualRecipe = () => {
   const { id } = useParams();
@@ -19,33 +18,42 @@ const IndividualRecipe = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>{recipe.name}</h1>
-      <h3>{recipe.description}</h3>
-      <h3>Ingredients</h3>
-      <div style={styles.ingreList}>
-        {recipe.ingredient?.map((ingredient, index) => (
-          <div key={index} style={styles.ingre}>
-            {ingredient}
-          </div>
-        ))}
-      </div>
+    <div style={styles.container}>
+      <div style={styles.homeHeader1}>Make Your Drink And Taste</div>
 
-      <h3>Instructions</h3>
-      {recipe.instruction
-        ?.replaceAll("/n", "\n")
-        .replaceAll("\\n", "\n")
-        .split("\n")
-        .map((line) => (
-          <p>{line}</p>
-        ))}
-      <div className="img">
-        <img
-          src={recipe.thumbnail}
-          alt="No thumbnail :("
-          width="450"
-          height="450"
-        />
+      <div style={styles.individualRecipeContainer}>
+        <div>
+          <img style={styles.img}
+            src={recipe.thumbnail}
+            alt="No thumbnail :("
+            width="450"
+            height="450"
+          />
+        </div>
+        <div>
+          <div>
+            <div style={styles.header1}>{recipe.name}</div>
+            <div style={styles.header2}>{recipe.description}</div>
+            <div style={styles.header3}>Ingredients</div>
+            <div style={styles.ingreList}>
+              {
+                recipe.ingredient?.map((ingredient, index) =>
+                  <div key={index} style={styles.ingre}>{ingredient}</div>)
+              }
+            </div>
+          </div>
+          <div>
+            <div>Instructions</div>
+            <div>
+              {
+                recipe.instruction?.replaceAll("/n", "\n")
+                  .replaceAll("\\n", "\n")
+                  .split("\n")
+                  .map((line) => <p>{line}</p>)
+              }
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -53,6 +61,23 @@ const IndividualRecipe = () => {
 export default IndividualRecipe;
 
 const styles = {
+  container: {
+    alignItem: 'center',
+    width: '1920px',
+    maxWidth: '95vw',
+    padding: '0 2rem',
+    margin: '0 auto',
+  },
+  homeHeader1: {
+    fontSize: '2rem',
+    margin: '2rem auto 2rem',
+    //fontFamily: 'UltraBold',
+  },
+  individualRecipeContainer: {
+    display: 'flex',
+    margin: '0 16rem 2rem',
+    justifyContent: 'center'
+  },
   ingre: {},
   ingreList: {},
 };
