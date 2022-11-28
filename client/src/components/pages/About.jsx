@@ -4,8 +4,8 @@ const About = () => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.aboutHeader}>Relive your passion</div>
-      <div style={styles.aboutBody}>
+      <div style={styles.header}>Relive your passion</div>
+      <div style={styles.body}>
         <div>Are you a cocktail lover, a drink enthusiast, or just simply a person eager to learn how to make some refreshing drinks?</div>
         <br></br>
         <div>Then our website is for YOU!</div>
@@ -15,7 +15,7 @@ const About = () => {
           Follow easiest step-by-step instructions, taste your drink and don't forget share your favorite recipes on social media.
         </div>
       </div>
-      <div style={styles.aboutImg}>
+      <div style={styles.img}>
         <div>
           <img
             src="/images/About-1.jpg"
@@ -58,21 +58,20 @@ const styles = {
     padding: '0 2rem',
     margin: '0 auto',
   },
-  aboutHeader: {
+  header: {
     fontSize: '2rem',
-    margin: '2rem auto 2rem',
+    margin: '2rem auto 1rem',
   },
-  aboutBody: {
+  body: {
     margin: 'auto',
     width: '1000px',
     textAlign: 'left',
     justifyContent: 'center'
-
   },
-  aboutImg: {
+  img: {
     margin: '2rem auto',
     display: 'flex',
-    columnGap: '120px',
+    columnGap: '75px',
     justifyContent: 'center'
   },
 }

@@ -5,19 +5,19 @@ const Home = () => {
   return (
     <div style={styles.container}>
       <div>
-        <div style={styles.homeHeader1}>Virtual Bartender</div>
-        <div style={styles.homeHeader2}>MAKE YOURSELF A BARTENDER</div>
+        <div style={styles.header1}>Virtual Bartender</div>
+        <div style={styles.header2}>MAKE YOURSELF A BARTENDER</div>
       </div>
-      <div style={styles.homeBody}>
-        <div style={styles.homeImg}>
+      <div style={styles.body}>
+        <div>
           <img
             src="/images/Home.jpg"
             alt="Home"
-            width="800"
-            height="500"
+            width="550"
+            height="390"
           />
         </div>
-        <div style={styles.homeBodyText}>
+        <div style={styles.bodyText}>
           Liquor enthusiastic?<br></br>
           Want to get some drinks?<br></br>
           Learn how to make mocktails and others?<br></br>
@@ -47,25 +47,23 @@ const styles = {
     padding: '0 2rem',
     margin: '0 auto',
   },
-  homeHeader1: {
+  header1: {
     fontSize: '2rem',
-    margin: '2rem auto 2rem',
-    //fontFamily: 'UltraBold',
+    margin: '2rem auto 1rem',
   },
-  homeHeader2: {
+  header2: {
     fontSize: '1.75rem',
-    margin: '2rem auto 2rem',
+    margin: '1rem auto 1rem',
+    fontFamily: 'Light',
   },
-  homeBody: {
+  body: {
     display: 'flex',
-    margin: '0 16rem 3rem',
-    justifyContent: 'center'
+    margin: '0 12rem 3rem',
+    justifyContent: 'center',
+    columnGap: '25px'
   },
-  homeImg: {
-    margin: '0 6rem 3rem',
-  },
-  homeBodyText: {
-    margin: '5rem 0 auto',
+  bodyText: {
+    margin: '3rem 0 0',
     fontFamily: 'Light',
   }
 }

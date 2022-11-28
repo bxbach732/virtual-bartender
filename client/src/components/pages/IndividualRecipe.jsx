@@ -19,31 +19,31 @@ const IndividualRecipe = () => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.homeHeader1}>Make Your Drink And Taste</div>
-
-      <div style={styles.individualRecipeContainer}>
-        <div>
+      <div style={styles.header1}>Make Your Drink And Taste</div>
+      <div style={styles.header2}><b>{recipe.name?.toUpperCase()}</b></div>
+      <div style={styles.body}>
+        <div style={styles.bodyContent1}>
           <img style={styles.img}
             src={recipe.thumbnail}
             alt="No thumbnail :("
-            width="450"
-            height="450"
+            width="250"
+            height="250"
           />
+          <div>{recipe.description}</div>
         </div>
-        <div>
-          <div>
-            <div style={styles.header1}>{recipe.name}</div>
-            <div style={styles.header2}>{recipe.description}</div>
-            <div style={styles.header3}>Ingredients</div>
-            <div style={styles.ingreList}>
+        <div style={styles.bodyContent2}>
+          <div style={styles.ingredientText}>
+            <div><b>Ingredients</b></div>
+            <div>
               {
                 recipe.ingredient?.map((ingredient, index) =>
-                  <div key={index} style={styles.ingre}>{ingredient}</div>)
+                  <div key={index}>{ingredient}</div>)
               }
             </div>
           </div>
-          <div>
-            <div>Instructions</div>
+          &nbsp;
+          <div style={styles.instructionText}>
+            <div><b>How to make</b></div>
             <div>
               {
                 recipe.instruction?.replaceAll("/n", "\n")
@@ -68,16 +68,35 @@ const styles = {
     padding: '0 2rem',
     margin: '0 auto',
   },
-  homeHeader1: {
+  header1: {
     fontSize: '2rem',
     margin: '2rem auto 2rem',
     //fontFamily: 'UltraBold',
   },
-  individualRecipeContainer: {
+  header2: {
+    fontSize: '1.75rem',
+    margin: '2rem auto 1rem',
+    fontFamily: 'Light'
+  },
+  body: {
     display: 'flex',
     margin: '0 16rem 2rem',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    columnGap: '50px',
+    marginBottom: '4rem'
   },
-  ingre: {},
-  ingreList: {},
+  bodyContent1: {
+    width: '350px',
+    textAlign: 'center',
+  },
+  bodyContent2: {
+    marginBottom: '4rem'
+  },
+  ingredientText: {
+    textAlign: 'center'
+  },
+  instructionText: {
+    width: '400px',
+    textAlign: 'left',
+  },
 };
