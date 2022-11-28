@@ -8,13 +8,12 @@ import { Box, Button } from "@mui/material";
 import { getURL } from "../tools";
 import useStyles from "../materialui/styles";
 
-
 const RecipeList = () => {
   const classes = useStyles();
   const [recipes, setRecipes] = useState([]);
-  const [showMore, setShowMore] = useState(false)
+  const [showMore, setShowMore] = useState(false);
 
-
+  //Fetch the recipes
   useEffect(() => {
     const fetchRecipes = async () => {
       const response = await getURL("/recipe");
@@ -23,6 +22,7 @@ const RecipeList = () => {
     };
     fetchRecipes();
   }, []);
+
   return (
     <div>
       <h1>Recipes</h1>
@@ -30,47 +30,48 @@ const RecipeList = () => {
         display="flex"
         flexWrap="wrap"
         alignItems="center"
-        className={classes.recipesContainer}>
-        {
-          !showMore ? recipes.filter((_, index) => index < 10).map(recipe => (
-            <Box key={recipe._id} className={classes.recipe}>
-              <Box className="img">
-                <Link to={"/recipes/" + recipe._id}>
-                  <img
-                    src={recipe.thumbnail}
-                    alt="No thumbnail :("
-                    width="150"
-                    height="150"
-                  />
-                </Link>
+        className={classes.recipesContainer}
+      >
+        {!showMore
+          ? recipes
+              .filter((_, index) => index < 10)
+              .map((recipe) => (
+                <Box key={recipe._id} className={classes.recipe}>
+                  <Box className="img">
+                    <Link to={"/recipes/" + recipe._id}>
+                      <img
+                        src={recipe.thumbnail}
+                        alt="No thumbnail :("
+                        width="150"
+                        height="150"
+                      />
+                    </Link>
+                  </Box>
+                  <ListItemText primary={recipe.name} />
+                </Box>
+              ))
+          : recipes.map((recipe) => (
+              <Box key={recipe._id} className={classes.recipe}>
+                <Box className="img">
+                  <Link to={"/recipes/" + recipe._id}>
+                    <img
+                      src={recipe.thumbnail}
+                      alt="No thumbnail :("
+                      width="150"
+                      height="150"
+                    />
+                  </Link>
+                </Box>
+                <ListItemText primary={recipe.name} />
               </Box>
-              <ListItemText
-                primary={recipe.name}
-              />
-            </Box>
-          )) : recipes.map(recipe => (
-            <Box key={recipe._id} className={classes.recipe}>
-              <Box className="img">
-                <Link to={"/recipes/" + recipe._id}>
-                  <img
-                    src={recipe.thumbnail}
-                    alt="No thumbnail :("
-                    width="150"
-                    height="150"
-                  />
-                </Link>
-              </Box>
-              <ListItemText
-                primary={recipe.name}
-              />
-            </Box>))
-        }
+            ))}
       </Box>
       <Box className={classes.showButton}>
         <Button
           onClick={() => setShowMore(!showMore)}
           variant="contained"
-          color="secondary">
+          color="secondary"
+        >
           {!showMore ? "See More" : "See Less"}
         </Button>
       </Box>

@@ -22,7 +22,7 @@ function useProvideAuth() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  //Save the user to state.
+  //Send otp to email specified
   const sendotp = async (email) => {
     const body = {
       email: email,
@@ -33,6 +33,7 @@ function useProvideAuth() {
     return jsonres;
   };
 
+  //Check if the otp is correct
   const checkotp = async (email, otp) => {
     const body = {
       email: email,
@@ -40,6 +41,7 @@ function useProvideAuth() {
     };
     const response = await postURL("/auth/authenticate", body);
     const jsonres = await response.json();
+    //If the response contains the access token, get the userinfo
     if (jsonres.access_token) {
       const profile = await getprofile(jsonres.access_token);
       return jsonres;
@@ -48,6 +50,7 @@ function useProvideAuth() {
     }
   };
 
+  //Get the user info with the token
   const getprofile = async (token) => {
     const headers = {
       Authorization: "Bearer " + token,
@@ -57,6 +60,7 @@ function useProvideAuth() {
     const jsonres = await response.json();
     console.log(jsonres.sub);
     if (jsonres.email) {
+      //Set the token and user into localstorage
       window.localStorage.setItem("token", token);
       window.localStorage.setItem("user", jsonres.sub.split("|")[1]);
       setUser(jsonres.sub.split("|")[1]);
@@ -65,6 +69,7 @@ function useProvideAuth() {
   };
 
   const signout = () => {
+    //Remove the items from localstorage and set user as false on logout
     setUser(false);
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user");

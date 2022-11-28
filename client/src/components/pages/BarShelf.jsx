@@ -13,21 +13,27 @@ const BarShelf = () => {
   const navigate = useNavigate();
 
   const fetchPossibleRecipes = useCallback(async () => {
+    //Get possible recipes with the current shelf
     const response = await getURL("/shelf/" + shelf._id + "/possible-recipe");
     const PossibleRecipes = await response.json();
     setPossibleRecipes(PossibleRecipes["Possible recipes"]);
     setImpossibleRecipes(PossibleRecipes["Impossible recipes"]);
-  }, [shelf])
+  }, [shelf]);
 
   useEffect(() => {
+    //Get the user from localstorage
     const user = window.localStorage.getItem("user");
+    //If no user, return to login
     if (!user) navigate("/login");
     const fetchBarshelf = async () => {
-      const idResponse = await getURL("/user/" + user + "/shelf");
-      const Shelf = await idResponse.json();
+      //Fetch the shelf of the user
+      const response = await getURL("/user/" + user + "/shelf");
+      const Shelf = await response.json();
       setShelf(Shelf);
+      //Fetch the ingredients
       const ingredientResponse = await getURL("/ingredient");
       const Ingredients = await ingredientResponse.json();
+      //Sort the ingredients according to their types.
       const ingredientTypes = Ingredients.reduce((types, item) => {
         const type = types[item.type] || [];
         type.push(item);
@@ -38,21 +44,26 @@ const BarShelf = () => {
     };
     fetchBarshelf();
   }, [navigate]);
+
+  //Every time the shelf updates, call fetchPossibleRecipes
   useEffect(() => {
     fetchPossibleRecipes();
   }, [shelf, fetchPossibleRecipes]);
 
+  //Update the shelf on clicking any ingredient
   async function ingredientOnclick(id) {
     let shelfData = {};
+    //If it's already on the shelf, remove it
     if (shelf.content.includes(id)) {
       const response = await putURL("/shelf/" + shelf._id + "/delete/" + id);
       shelfData = await response.json();
+      //If it isn't, add it
     } else {
       const response = await putURL("/shelf/" + shelf._id + "/add/" + id);
       shelfData = await response.json();
     }
+    //Update shelf
     setShelf(shelfData);
-    fetchPossibleRecipes();
   }
 
   return (
@@ -61,11 +72,23 @@ const BarShelf = () => {
         Have you found your favourite yet?
       </div>
       <div style={styles.box}>
-        <IngredientList ingredients={ingredients} shelf={shelf} ingredientOnclick={ingredientOnclick} />
+        <IngredientList
+          ingredients={ingredients}
+          shelf={shelf}
+          ingredientOnclick={ingredientOnclick}
+        />
 
         <div style={styles.barShelfRecipeList}>
-          <RecipeList text1={"AVAILABLE RECIPES"} text2={"with your ingredients"} recipes={possibleRecipes} />
-          <RecipeList text1={"CANNOT MAKE"} text2={":("} recipes={impossibleRecipes} />
+          <RecipeList
+            text1={"AVAILABLE RECIPES"}
+            text2={"with your ingredients"}
+            recipes={possibleRecipes}
+          />
+          <RecipeList
+            text1={"CANNOT MAKE"}
+            text2={":("}
+            recipes={impossibleRecipes}
+          />
         </div>
       </div>
     </div>
@@ -75,18 +98,18 @@ const BarShelf = () => {
 export default BarShelf;
 const styles = {
   barShelfHeader: {
-    fontSize: '3rem',
-    margin: '3rem auto 3rem',
+    fontSize: "3rem",
+    margin: "3rem auto 3rem",
   },
   box: {
-    display: 'flex',
-    justifyContent: 'center',
-    columnGap: '100px',
-    marginBottom: '100px'
+    display: "flex",
+    justifyContent: "center",
+    columnGap: "100px",
+    marginBottom: "100px",
   },
   barShelfRecipeList: {
-    display: 'flex',
-    justifyContent: 'center',
-    columnGap: '50px',
+    display: "flex",
+    justifyContent: "center",
+    columnGap: "50px",
   },
-}
+};

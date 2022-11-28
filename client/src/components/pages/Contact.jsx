@@ -7,10 +7,12 @@ const Contact = () => {
       <div style={styles.contactBody}>
         <div style={styles.contactBodyText}>
           Phone/ Mobile number <br></br>
-          123-456-789<br></br><br></br>
+          123-456-789<br></br>
+          <br></br>
           <hr></hr>
           Address <br></br>
-          123 Anywhere St., Any City, ST 12345<br></br><br></br>
+          123 Anywhere St., Any City, ST 12345<br></br>
+          <br></br>
           <hr></hr>
           E-mail Address <br></br>
           contact@virtualbartender.com<br></br>
@@ -24,7 +26,6 @@ const Contact = () => {
           />
         </div>
       </div>
-
     </div>
   );
 };
@@ -33,20 +34,18 @@ export default Contact;
 
 const styles = {
   contactHeader1: {
-    fontSize: '3rem',
-    margin: '3rem auto 3rem',
+    fontSize: "3rem",
+    margin: "3rem auto 3rem",
   },
   contactBody: {
-    display: 'flex',
-    margin: '0 18rem 3rem',
-    justifyContent: 'center'
+    display: "flex",
+    margin: "0 18rem 3rem",
+    justifyContent: "center",
   },
   contactImg: {
-    margin: '0 6rem 3rem',
+    margin: "0 6rem 3rem",
   },
   contactBodyText: {
-    margin: '5rem 3rem auto',
-  }
-
-
-}
+    margin: "5rem 3rem auto",
+  },
+};

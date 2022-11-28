@@ -2,20 +2,17 @@ import React, { useState, useEffect } from "react";
 import { getURL } from "../tools";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
-
 
 const IndividualRecipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
 
   useEffect(() => {
-    console.log(id);
+    //Fetch the recipe and its ingredients and instructions
     const fetchRecipe = async () => {
       const response = await getURL("/recipe/" + id);
       const Recipe = await response.json();
       setRecipe(Recipe);
-      console.log(Recipe.ingredient);
     };
 
     fetchRecipe();
@@ -27,19 +24,21 @@ const IndividualRecipe = () => {
       <h3>{recipe.description}</h3>
       <h3>Ingredients</h3>
       <div style={styles.ingreList}>
-        {
-          recipe.ingredient?.map((ingredient, index) =>
-            <div key={index} style={styles.ingre}>{ingredient}</div>)
-        }
+        {recipe.ingredient?.map((ingredient, index) => (
+          <div key={index} style={styles.ingre}>
+            {ingredient}
+          </div>
+        ))}
       </div>
 
       <h3>Instructions</h3>
-      {
-        recipe.instruction?.replaceAll("/n", "\n")
-          .replaceAll("\\n", "\n")
-          .split("\n")
-          .map((line) => <p>{line}</p>)
-      }
+      {recipe.instruction
+        ?.replaceAll("/n", "\n")
+        .replaceAll("\\n", "\n")
+        .split("\n")
+        .map((line) => (
+          <p>{line}</p>
+        ))}
       <div className="img">
         <img
           src={recipe.thumbnail}
@@ -49,7 +48,6 @@ const IndividualRecipe = () => {
         />
       </div>
     </div>
-
   );
 };
 export default IndividualRecipe;
